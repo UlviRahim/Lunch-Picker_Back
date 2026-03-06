@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - LPicker Admin</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/assets/admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/assets/admin/vendors/base/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/assets/admin/css/style.css">
+    <link rel="shortcut icon" href="~/assets/admin/images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+
+        <!-- NAVBAR -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="navbar-brand-wrapper d-flex justify-content-center">
+                <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                    <a class="navbar-brand brand-logo" href="/AdminPanel/Dashboard">
+                        <h3 class="text-white">🎡 LPicker</h3>
+                    </a>
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-sort-variant"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                            <i class="mdi mdi-account-circle mdi-24px"></i>
+                            <span class="nav-profile-name">@User.Identity.Name</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown">
+                            <a class="dropdown-item" href="/">
+                                <i class="mdi mdi-home text-primary"></i> Back to Site
+                            </a>
+                            <a class="dropdown-item" asp-controller="Account" asp-action="Logout">
+                                <i class="mdi mdi-logout text-primary"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- SIDEBAR -->
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="AdminPanel" asp-controller="Dashboard" asp-action="Index">
+                            <i class="mdi mdi-view-dashboard menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="AdminPanel" asp-controller="WheelItem" asp-action="Index">
+                            <i class="mdi mdi-circle-slice-8 menu-icon"></i>
+                            <span class="menu-title">Wheel Items</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="AdminPanel" asp-controller="SpinResult" asp-action="Index">
+                            <i class="mdi mdi-history menu-icon"></i>
+                            <span class="menu-title">Spin History</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="mdi mdi-home menu-icon"></i>
+                            <span class="menu-title">Back to Site</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- MAIN CONTENT -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
+                            Copyright © LPicker 2025
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="~/assets/admin/vendors/base/vendor.bundle.base.js"></script>
+    <script src="~/assets/admin/js/off-canvas.js"></script>
+    <script src="~/assets/admin/js/hoverable-collapse.js"></script>
+    <script src="~/assets/admin/js/template.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

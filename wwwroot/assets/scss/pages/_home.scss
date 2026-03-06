@@ -1,0 +1,989 @@
+// --- 1. DƏYİŞƏNLƏR (Variables) ---
+$primary: #5b5df0;
+$primary-dark: darken($primary, 10%);
+$primary-light: lighten($primary, 15%);
+$secondary: #f5a623;
+$danger: #ff4757;
+$bg-color: #f3f3f3;
+$white: #ffffff;
+$text-dark: #2d3436;
+$text-muted: #636e72;
+$border-color: #eee;
+$transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$transition-smooth: all 0.3s ease;
+
+// --- DARK MODE VARIABLES ---
+$dark-bg: #0f172a;
+$dark-card: #1e293b;
+$dark-text: #f1f5f9;
+$dark-text-muted: #94a3b8;
+$dark-border: #334155;
+$dark-primary: #818cf8;
+
+// --- 2. BAZA STILLƏRİ & RESET ---
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+body {
+  background: $bg-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $text-dark;
+  overflow-x: hidden;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $bg-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: darken($bg-color, 15%);
+    border-radius: 10px;
+    &:hover {
+      background: $primary;
+    }
+  }
+
+  // ========== DARK MODE STYLES ==========
+  &.dark {
+    background: $dark-bg;
+    color: $dark-text;
+
+    &::-webkit-scrollbar-track {
+      background: $dark-bg;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $dark-border;
+      &:hover {
+        background: $dark-primary;
+      }
+    }
+
+    // Navbar Dark
+    .navbar {
+      background: $dark-card;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+      .logo span {
+        color: $dark-primary;
+      }
+
+      .nav-right {
+        #langToggle {
+          color: $dark-text-muted;
+          &:hover {
+            color: $dark-primary;
+          }
+        }
+
+        .lang-menu {
+          background: $dark-card;
+          border-color: $dark-border;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+          div {
+            color: $dark-text;
+            &:hover {
+              background: rgba($dark-primary, 0.1);
+              color: $dark-primary;
+            }
+            &:not(:last-child) {
+              border-bottom-color: $dark-border;
+            }
+          }
+        }
+
+        .signin-btn {
+          background: $dark-primary;
+          &:hover {
+            background: lighten($dark-primary, 10%);
+            box-shadow: 0 4px 12px rgba($dark-primary, 0.4);
+          }
+        }
+
+        // Theme Toggle Dark
+        .theme-toggle-btn {
+          color: $dark-text-muted;
+          border-color: $dark-border;
+          &:hover {
+            background: $dark-primary;
+            color: $dark-bg;
+            border-color: $dark-primary;
+          }
+        }
+      }
+    }
+
+    // Container Dark
+    .container {
+      .title {
+        color: $dark-text;
+      }
+
+      .wheel-wrapper {
+        canvas {
+          border-color: $dark-border;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .spin-btn {
+          background: $secondary;
+          border-color: $dark-card;
+          box-shadow: 0 4px 15px rgba($secondary, 0.5);
+        }
+      }
+
+      .controls {
+        .outline-btn {
+          border-color: $dark-primary;
+          color: $dark-primary;
+
+          &:hover {
+            background: $dark-primary;
+            color: $dark-bg;
+          }
+        }
+
+        .circle-btn {
+          border-color: $dark-primary;
+          color: $dark-primary;
+
+          &:hover {
+            background: $dark-primary;
+            color: $dark-bg;
+          }
+        }
+      }
+    }
+
+    // Modal Dark
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.7);
+
+      .modal-card {
+        background: $dark-card;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+
+        .modal-header {
+          h3 {
+            color: $dark-text;
+          }
+          .close-x {
+            background: $dark-border;
+            color: $dark-text-muted;
+            &:hover {
+              background: $danger;
+              color: $white;
+            }
+          }
+        }
+
+        .modal-body {
+          input {
+            background: $dark-bg;
+            border-color: $dark-border;
+            color: $dark-text;
+            &:focus {
+              border-color: $dark-primary;
+              box-shadow: 0 0 0 4px rgba($dark-primary, 0.2);
+            }
+          }
+
+          #modalMessage {
+            .result-badge {
+              background: rgba($dark-primary, 0.1);
+              color: $dark-text;
+              border-color: rgba($dark-primary, 0.2);
+            }
+
+            .win-focus {
+              background: linear-gradient(
+                135deg,
+                rgba($dark-primary, 0.15),
+                rgba($dark-primary, 0.05)
+              );
+              border-left-color: $dark-primary;
+
+              .win-value {
+                color: $dark-primary;
+              }
+            }
+          }
+        }
+
+        .modal-footer {
+          .btn-secondary {
+            background: $dark-border;
+            color: $dark-text;
+            border-color: $dark-border;
+            &:hover {
+              background: lighten($dark-border, 5%);
+            }
+          }
+          .btn-primary {
+            background: linear-gradient(
+              135deg,
+              $dark-primary,
+              lighten($dark-primary, 10%)
+            );
+          }
+        }
+      }
+    }
+
+    // Footer Dark
+    .footer {
+      background: $dark-card;
+      border-top-color: $dark-border;
+
+      .footer-grid {
+        div {
+          h4 {
+            color: $dark-text;
+          }
+          a {
+            color: $dark-text-muted;
+            &:hover {
+              color: $dark-primary;
+            }
+          }
+        }
+      }
+
+      .footer-bottom {
+        border-top-color: $dark-border;
+        color: $dark-text-muted;
+      }
+    }
+  }
+}
+
+// --- 3. NAVİQASİYA PANELİ ---
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: $white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  // ========== LOGO WITH IMAGE ==========
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: $transition-smooth;
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    span {
+      font-weight: 800;
+      font-size: 24px;
+      color: $primary;
+      letter-spacing: -0.5px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      .logo-img {
+        transform: rotate(15deg);
+      }
+    }
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    // ========== THEME TOGGLE BUTTON ==========
+    .theme-toggle-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid $border-color;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $text-muted;
+      transition: $transition-smooth;
+      outline: none !important;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      &:hover {
+        background: $primary;
+        color: $white;
+        border-color: $primary;
+        transform: rotate(15deg) scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    .language {
+      position: relative;
+
+      #langToggle {
+        font-size: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: #555;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none !important;
+        box-shadow: none !important;
+
+        &:hover {
+          color: $primary;
+          transform: rotate(15deg);
+        }
+      }
+
+      .lang-menu {
+        position: absolute;
+        right: 0;
+        top: 45px;
+        background: $white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        min-width: 150px;
+        z-index: 101;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: background 0.3s ease;
+
+        div {
+          padding: 12px 18px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 600;
+          transition: $transition-smooth;
+
+          &:hover {
+            background: #f8f9fa;
+            color: $primary;
+            padding-left: 22px;
+          }
+
+          &:not(:last-child) {
+            border-bottom: 1px solid #f1f1f1;
+          }
+        }
+      }
+
+      &.active .lang-menu {
+        display: flex;
+        animation: fadeIn 0.2s ease;
+      }
+    }
+
+    .signin-btn {
+      background: $primary;
+      color: $white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      outline: none !important;
+
+      &:hover {
+        background: $primary-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($primary, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px 25px;
+    .logo {
+      .logo-img {
+        width: 32px;
+        height: 32px;
+      }
+      span {
+        font-size: 20px;
+      }
+    }
+    .nav-right {
+      gap: 10px;
+    }
+    .theme-toggle-btn {
+      width: 38px;
+      height: 38px;
+    }
+  }
+}
+
+// --- 4. ƏSAS KONTEYNER ---
+.container {
+  flex: 1;
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .title {
+    font-size: 42px;
+    margin-bottom: 35px;
+    color: $text-dark;
+    font-weight: 900;
+    letter-spacing: -1px;
+    transition: color 0.3s ease;
+  }
+
+  .wheel-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+
+    .wheel-pointer {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 40px solid $secondary;
+      z-index: 15;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+
+    canvas {
+      border: 10px solid $text-dark;
+      border-radius: 50%;
+      background: $white;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      user-select: none;
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .spin-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: $secondary;
+      color: $white;
+      border: 6px solid $white;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 18px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: $transition-bounce;
+      box-shadow: 0 4px 15px rgba($secondary, 0.4);
+      outline: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      user-select: none !important;
+
+      &:focus,
+      &:active,
+      &:focus-visible {
+        outline: none !important;
+        box-shadow: 0 4px 15px rgba($secondary, 0.4) !important;
+        background: $secondary !important;
+      }
+
+      &:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba($secondary, 0.5);
+        background: lighten($secondary, 5%);
+      }
+
+      &:active {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  .controls {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    .outline-btn,
+    .circle-btn {
+      outline: none !important;
+    }
+
+    .outline-btn {
+      padding: 12px 30px;
+      border: 2px solid $primary;
+      background: transparent;
+      color: $primary;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($primary, 0.3);
+      }
+    }
+
+    .circle-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid $primary;
+      background: transparent;
+      color: $primary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+        transform: rotate(15deg) scale(1.1);
+      }
+    }
+  }
+}
+
+// --- 5. MODAL & TARİXÇƏ DİZAYNI --
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  &.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-card {
+    background: $white;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 28px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    animation: modalBounce 0.4s $transition-bounce;
+    position: relative;
+    transition: background 0.3s ease;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+
+      h3 {
+        font-size: 24px;
+        color: $text-dark;
+        font-weight: 800;
+        transition: color 0.3s ease;
+      }
+
+      .close-x {
+        background: #f1f1f1;
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        color: #888;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $transition-smooth;
+        outline: none !important;
+
+        &:hover {
+          background: $danger;
+          color: $white;
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .modal-body {
+      margin-bottom: 30px;
+
+      #modalMessage {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-height: 380px;
+        overflow-y: auto;
+        padding-right: 5px;
+
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #ddd;
+          border-radius: 10px;
+        }
+
+        .result-badge {
+          background: rgba($primary, 0.06);
+          color: $text-dark;
+          padding: 12px 18px;
+          border-radius: 16px;
+          font-weight: 700;
+          font-size: 15px;
+          border: 1px solid rgba($primary, 0.1);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          animation: cardPop 0.4s $transition-bounce;
+        }
+
+        .win-focus {
+          width: 100%;
+          padding: 25px;
+          background: linear-gradient(
+            135deg,
+            rgba($primary, 0.08),
+            rgba($primary, 0.02)
+          );
+          border-radius: 20px;
+          border-left: 6px solid $primary;
+          text-align: left;
+          margin: 10px 0;
+
+          .win-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+          }
+
+          .win-value {
+            font-size: 26px;
+            color: $primary;
+            font-weight: 900;
+          }
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 15px 20px;
+        border: 2px solid #edf2f7;
+        border-radius: 16px;
+        font-size: 16px;
+        outline: none;
+        font-weight: 600;
+        transition:
+          border-color 0.3s,
+          background 0.3s,
+          color 0.3s;
+
+        &:focus {
+          border-color: $primary;
+          box-shadow: 0 0 0 4px rgba($primary, 0.1);
+        }
+      }
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+
+      button {
+        padding: 14px 32px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 800;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        transition: $transition-bounce;
+        outline: none !important;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -50%;
+          left: -60%;
+          width: 25%;
+          height: 200%;
+          background: rgba(255, 255, 255, 0.25);
+          transform: rotate(30deg);
+          transition: 0.6s;
+        }
+        &:hover::after {
+          left: 120%;
+        }
+        &:hover {
+          transform: translateY(-3px);
+        }
+      }
+
+      .btn-secondary {
+        background: #f7fafc;
+        color: #4a5568;
+        border: 1px solid #e2e8f0;
+        &:hover {
+          background: #edf2f7;
+        }
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, $primary, lighten($primary, 10%));
+        color: $white;
+        box-shadow: 0 6px 15px rgba($primary, 0.2);
+
+        &.btn-danger {
+          background: linear-gradient(
+            135deg,
+            $danger,
+            lighten($danger, 10%)
+          ) !important;
+        }
+      }
+    }
+  }
+}
+
+// --- 6. FOOTER ---
+.footer {
+  background: $white;
+  padding: 40px 80px;
+  border-top: 1px solid #edf2f7;
+  margin-top: auto;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    div {
+      h4 {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: $text-dark;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      // FOOTER LINKS
+      a {
+        display: block;
+        margin-bottom: 10px;
+        color: $text-muted;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+
+        &:hover {
+          color: $primary;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: #a0aec0;
+    font-size: 14px;
+    padding-top: 30px;
+    border-top: 1px solid #f7fafc;
+    margin-top: 40px;
+    font-weight: 500;
+    transition:
+      border-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 25px;
+    .footer-grid {
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+}
+
+// --- 7. KEYFRAMES ---
+@keyframes cardPop {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalBounce {
+  from {
+    transform: translateY(40px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+// --- 8. TOAST NOTIFICATION ---
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  &::before {
+    content: "✓";
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+// DARK MODE TOAST
+body.dark .toast {
+  background: linear-gradient(
+    135deg,
+    $dark-primary,
+    lighten($dark-primary, 10%)
+  );
+  box-shadow: 0 10px 40px rgba($dark-primary, 0.4);
+}
+
+.modal-scroll-content {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+  transition: scroll 0.3s ease;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(#636e72, 0.4);
+    border-radius: 20px;
+    border: 2px solid transparent;
+  }
+
+  .dark & {
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(#fff, 0.2);
+    }
+  }
+}

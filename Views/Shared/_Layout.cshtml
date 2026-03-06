@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Wheel - Pro Edition</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+
+    <div id="toast" class="toast"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="./assets/images/wheel-logo.png" alt="Logo" class="logo-img">
+            <span>RandomWheel</span>
+        </div>
+        <div class="nav-right">
+            <div class="language">
+                <button id="langToggle"><i class="fas fa-globe"></i></button>
+                <div class="lang-menu" id="langMenu">
+                    <div data-lang="az">Azərbaycan</div>
+                    <div data-lang="en">English</div>
+                    <div data-lang="ru">Русский</div>
+                </div>
+            </div>
+            <button class="signin-btn" data-i18n="signin">Daxil ol</button>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>WHEELCARNIVAL</h4>
+                <a href="https://en.wikipedia.org/wiki/Random_number_generation" target="_blank" rel="noopener noreferrer">About</a>
+                <a href="mailto:contact@randomwheel.com">Contact</a>
+            </div>
+            <div>
+                <h4>LEGAL</h4>
+                <a href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://www.termsfeed.com/blog/sample-terms-of-service-template/" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                <a href="https://policies.google.com/content-policy?hl=en" target="_blank" rel="noopener noreferrer">Content Policy</a>
+            </div>
+            <div>
+                <h4>EXPLORE MORE</h4>
+                <a href="https://www.calculator.net" target="_blank" rel="noopener noreferrer">Calculator collection</a>
+                <a href="https://www.canva.com/graphs/" target="_blank" rel="noopener noreferrer">Create free charts</a>
+                <a href="https://emojipedia.org" target="_blank" rel="noopener noreferrer">Emoji dictionary</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 RandomWheel. Making decisions fun and easy.
+        </div>
+    </footer>
+
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="close-x" onclick="closeCustomModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="modalInput" autofocus>
+                <div id="weightControlContainer" style="margin-top: 15px; display: none;">
+                    <label id="weightLabel" style="font-size: 14px; color: #666;"></label>
+                    <input type="range" id="modalWeight" min="1" max="10" value="1" style="width: 100%; margin-top: 5px;">
+                </div>
+                <div id="modalMessage"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalCancel" class="btn-secondary"></button>
+                <button id="modalConfirm" class="btn-primary"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@model LPicker.Models.WheelItem
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Item</h4>
+
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label asp-for="Name">Enter name</label>
+                        <input asp-for="Name" type="text" class="form-control" placeholder="e.g. Pizza">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a class="btn btn-light" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+wwwroot\assets\css\main.css
+wwwroot\assets\images\wheel-logo.png
+wwwroot\assets\js\script.js
+wwwroot\assets\scss\main.scss
+wwwroot\assets\scss\pages\_home.scss
+wwwroot\assets\admin\vendors\base\bootstrap.min.js.map
+wwwroot\assets\admin\vendors\base\vendor.bundle.base.css
+wwwroot\assets\admin\vendors\base\vendor.bundle.base.js
+wwwroot\assets\admin\vendors\chart.js\Chart.min.js
+wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.css
+wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.js
+wwwroot\assets\admin\vendors\datatables.net\jquery.dataTables.js
+wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css
+wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css.map
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.eot
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.ttf
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff2
+wwwroot\assets\admin\css\maps\style.css.map
+wwwroot\assets\admin\css\style.css
+wwwroot\assets\admin\fonts\Roboto\Roboto-Black.eot
+wwwroot\assets\admin\fonts\Roboto\Roboto-Black.ttf
+wwwroot\assets\admin\fonts\Roboto\Roboto-Black.woff
+wwwroot\assets\admin\fonts\Roboto\Roboto-Black.woff2
+wwwroot\assets\admin\fonts\Roboto\Roboto-Bold.eot
+wwwroot\assets\admin\fonts\Roboto\Roboto-Bold.ttf
+wwwroot\assets\admin\fonts\Roboto\Roboto-Bold.woff
+wwwroot\assets\admin\fonts\Roboto\Roboto-Bold.woff2
+wwwroot\assets\admin\fonts\Roboto\Roboto-Light.eot
+wwwroot\assets\admin\fonts\Roboto\Roboto-Light.ttf
+wwwroot\assets\admin\fonts\Roboto\Roboto-Light.woff
+wwwroot\assets\admin\fonts\Roboto\Roboto-Light.woff2
+wwwroot\assets\admin\fonts\Roboto\Roboto-Medium.eot
+wwwroot\assets\admin\fonts\Roboto\Roboto-Medium.ttf
+wwwroot\assets\admin\fonts\Roboto\Roboto-Medium.woff
+wwwroot\assets\admin\fonts\Roboto\Roboto-Medium.woff2
+wwwroot\assets\admin\fonts\Roboto\Roboto-Regular.eot
+wwwroot\assets\admin\fonts\Roboto\Roboto-Regular.ttf
+wwwroot\assets\admin\fonts\Roboto\Roboto-Regular.woff
+wwwroot\assets\admin\fonts\Roboto\Roboto-Regular.woff2
+wwwroot\assets\admin\images\auth\lockscreen-bg.jpg
+wwwroot\assets\admin\images\auth\login-bg.jpg
+wwwroot\assets\admin\images\auth\register-bg.jpg
+wwwroot\assets\admin\images\faces\face1.jpg
+wwwroot\assets\admin\images\faces\face10.jpg
+wwwroot\assets\admin\images\faces\face11.jpg
+wwwroot\assets\admin\images\faces\face12.jpg
+wwwroot\assets\admin\images\faces\face13.jpg
+wwwroot\assets\admin\images\faces\face14.jpg
+wwwroot\assets\admin\images\faces\face15.jpg
+wwwroot\assets\admin\images\faces\face16.jpg
+wwwroot\assets\admin\images\faces\face17.jpg
+wwwroot\assets\admin\images\faces\face18.jpg
+wwwroot\assets\admin\images\faces\face19.jpg
+wwwroot\assets\admin\images\faces\face2.jpg
+wwwroot\assets\admin\images\faces\face20.jpg
+wwwroot\assets\admin\images\faces\face21.jpg
+wwwroot\assets\admin\images\faces\face22.jpg
+wwwroot\assets\admin\images\faces\face23.jpg
+wwwroot\assets\admin\images\faces\face24.jpg
+wwwroot\assets\admin\images\faces\face25.jpg
+wwwroot\assets\admin\images\faces\face26.jpg
+wwwroot\assets\admin\images\faces\face27.jpg
+wwwroot\assets\admin\images\faces\face3.jpg
+wwwroot\assets\admin\images\faces\face4.jpg
+wwwroot\assets\admin\images\faces\face5.jpg
+wwwroot\assets\admin\images\faces\face6.jpg
+wwwroot\assets\admin\images\faces\face7.jpg
+wwwroot\assets\admin\images\faces\face8.jpg
+wwwroot\assets\admin\images\faces\face9.jpg
+wwwroot\assets\admin\images\favicon.ico
+wwwroot\assets\admin\images\favicon.png
+wwwroot\assets\admin\images\logo-mini.svg
+wwwroot\assets\admin\images\logo.svg
+wwwroot\assets\admin\js\chart.js
+wwwroot\assets\admin\js\Chart.min.js
+wwwroot\assets\admin\js\dashboard.js
+wwwroot\assets\admin\js\data-table.js
+wwwroot\assets\admin\js\dataTables.bootstrap4.js
+wwwroot\assets\admin\js\documentation.js
+wwwroot\assets\admin\js\file-upload.js
+wwwroot\assets\admin\js\hoverable-collapse.js
+wwwroot\assets\admin\js\jquery.cookie.js
+wwwroot\assets\admin\js\jquery.dataTables.js
+wwwroot\assets\admin\js\off-canvas.js
+wwwroot\assets\admin\js\tabs.js
+wwwroot\assets\admin\js\template.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\css\main.css
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\js\script.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\base\bootstrap.min.js.map
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\base\vendor.bundle.base.css
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\base\vendor.bundle.base.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\chart.js\Chart.min.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.css
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\datatables.net\jquery.dataTables.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css.map
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\css\maps\style.css.map
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\css\style.css
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\images\favicon.ico
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\images\logo-mini.svg
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\images\logo.svg
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\chart.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\Chart.min.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\dashboard.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\data-table.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\dataTables.bootstrap4.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\documentation.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\file-upload.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\hoverable-collapse.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\jquery.cookie.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\jquery.dataTables.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\off-canvas.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\tabs.js
+C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\js\template.js
