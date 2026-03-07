@@ -264,7 +264,6 @@ C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.b
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.csproj.Up2Date
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.dll
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\refint\LPicker.dll
@@ -303,3 +302,5 @@ C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\zemv92
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\vwvfn85wby-{0}-agx3im085e-agx3im085e.gz
 C:\Users\ulvir\OneDrive\İş masası\LPicker\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 C:\Users\ulvir\OneDrive\İş masası\LPicker\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.sourcelink.json
+C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

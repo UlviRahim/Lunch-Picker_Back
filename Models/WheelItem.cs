@@ -1,15 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
 namespace LPicker.Models
 {
-    public class WheelItem
+    public class WheelItem : BaseModel
     {
-        public int Id { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Name { get; set; } = string.Empty;
-
-        public string? UserId { get; set; }
+        [Required, MaxLength(50)]
+        public string Name { get; set; }
     }
 }

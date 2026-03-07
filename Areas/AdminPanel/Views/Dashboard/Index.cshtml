@@ -2,41 +2,4 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <h4 class="card-title">Total Items</h4>
-                <h2 class="mb-0">@ViewBag.TotalItems</h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-success">
-            <div class="card-body">
-                <h4 class="card-title">Total Spins</h4>
-                <h2 class="mb-0">@ViewBag.TotalSpins</h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-info">
-            <div class="card-body">
-                <h4 class="card-title">Today Spins</h4>
-                <h2 class="mb-0">@ViewBag.TodaySpins</h2>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row mt-4">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Quick Actions</h4>
-                <a asp-area="AdminPanel" asp-action="Create" asp-controller="WheelItem" class="btn btn-primary me-2">Add New Item</a>
-                <a asp-area="AdminPanel" asp-action="Index" asp-controller="SpinResult" class="btn btn-info">View History</a>
-            </div>
-        </div>
-    </div>
-</div>  
+<h1>Dashboard</h1>

@@ -1,21 +1,19 @@
 ﻿@model LPicker.Models.WheelItem
+@{
+    ViewData["Title"] = "Sil";
+}
 
-<div class="row">
-    <div class="col-md-6 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Delete Item</h4>
-
-                <div class="alert alert-danger">
-                    Are you sure you want to delete <strong>@Model.Name</strong>?
-                </div>
-
-                <form method="post">
-                    <input type="hidden" asp-for="Id" />
-                    <button type="submit" class="btn btn-danger me-2">Yes, Delete</button>
-                    <a class="btn btn-light" asp-action="Index">Cancel</a>
-                </form>
-            </div>
-        </div>
+<div class="card-box">
+    <div class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        <b>@Model.Name</b> - Bu elementi silmək istəyirsiniz?
     </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-trash me-1"></i> Sil
+        </button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Ləğv Et</a>
+    </form>
 </div>

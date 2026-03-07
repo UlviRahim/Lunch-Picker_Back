@@ -4,13 +4,10 @@ namespace LPicker.ViewModels
 {
     public class LoginVM
     {
-        [Required]
-        public string Username { get; set; } = string.Empty;
+        [Required, DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; } = string.Empty;
-
-        public bool RememberMe { get; set; }
+        [Required, DataType(DataType.Password)]
+        public string Password { get; set; }
     }
 }

@@ -6,104 +6,82 @@ using LPicker.Models;
 
 namespace LPicker.Areas.AdminPanel.Controllers
 {
+    [Authorize(Roles = "SuperAdmin, Admin")]
     [Area("AdminPanel")]
-    [Authorize(Roles = "Admin, SuperAdmin")]
     public class WheelItemController : Controller
     {
-        private readonly LunchPickerDbContext _context;
+        private LunchPickerDbContext _context { get; }
 
         public WheelItemController(LunchPickerDbContext context)
         {
             _context = context;
         }
 
-        // GET: List
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var items = await _context.WheelItems.ToListAsync();
-            return View(items);
+            return View(_context.WheelItems.Where(c => !c.IsDeleted));
         }
 
-        // GET: Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(WheelItem item)
         {
-            if (ModelState.IsValid)
-            {
-                _context.WheelItems.Add(item);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(item);
+            if (!ModelState.IsValid) return View(item);
+
+            item.IsDeleted = false;
+            _context.WheelItems.Add(item);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
-        // GET: Edit
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null) return NotFound();
-
-            var item = await _context.WheelItems.FindAsync(id);
-            if (item == null) return NotFound();
-
-            return View(item);
-        }
-
-        // POST: Edit
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, WheelItem item)
-        {
-            if (id != item.Id) return NotFound();
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.WheelItems.Update(item);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.WheelItems.Any(e => e.Id == item.Id))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(item);
-        }
-
-        // GET: Delete
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null) return BadRequest();
 
-            var item = await _context.WheelItems.FindAsync(id);
+            WheelItem? item = await _context.WheelItems
+                .Where(i => !i.IsDeleted)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (item == null) return NotFound();
+
+            item.IsDeleted = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(int? id)
+        {
+            if (id == null) return BadRequest();
+
+            WheelItem? item = _context.WheelItems
+                .Where(i => !i.IsDeleted)
+                .FirstOrDefault(c => c.Id == id);
+
             if (item == null) return NotFound();
 
             return View(item);
         }
 
-        // POST: Delete
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Update(WheelItem item)
         {
-            var item = await _context.WheelItems.FindAsync(id);
-            if (item != null)
-            {
-                _context.WheelItems.Remove(item);
-                await _context.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
+            if (!ModelState.IsValid) return View(item);
+
+            WheelItem? existItem = _context.WheelItems
+                .Where(i => !i.IsDeleted)
+                .FirstOrDefault(c => c.Id == item.Id);
+
+            if (existItem == null) return NotFound();
+
+            existItem.Name = item.Name;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }

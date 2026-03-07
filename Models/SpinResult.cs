@@ -1,17 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace LPicker.Models
+﻿namespace LPicker.Models
 {
-    public class SpinResult
+    public class SpinResult : BaseModel
     {
-        public int Id { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string ItemName { get; set; } = string.Empty;
-
-        public DateTime SpinTime { get; set; }
-
         public string? UserId { get; set; }
+        public AppUser? User { get; set; }
+        public int WheelItemId { get; set; }
+        public WheelItem? WheelItem { get; set; }
+        public DateTime SpinDate { get; set; } = DateTime.Now;
     }
 }

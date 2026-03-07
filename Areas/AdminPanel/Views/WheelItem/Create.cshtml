@@ -1,22 +1,18 @@
 ﻿@model LPicker.Models.WheelItem
+@{
+    ViewData["Title"] = "Yeni Element";
+}
 
-<div class="row">
-    <div class="col-md-6 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Create Item</h4>
-
-                <form class="forms-sample" method="post">
-                    <div class="form-group">
-                        <label asp-for="Name">Enter name</label>
-                        <input asp-for="Name" type="text" class="form-control" placeholder="e.g. Pizza">
-                        <span class="text-danger" asp-validation-for="Name"></span>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" asp-action="Index">Cancel</a>
-                </form>
-            </div>
+<div class="card-box">
+    <h4 class="mb-3">Create form</h4>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label class="form-label">Yemək Adı</label>
+            <input class="form-control" asp-for="Name" placeholder="Məsələn: Pizza">
+            <span class="text-danger" asp-validation-for="Name"></span>
         </div>
-    </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-light" asp-action="Index">Cancel</a>
+    </form>
 </div>

@@ -1,24 +1,17 @@
 ﻿@model LPicker.Models.WheelItem
+@{
+    ViewData["Title"] = "Düzəlt";
+}
 
-<div class="row">
-    <div class="col-md-6 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Update Item</h4>
-
-                <form class="forms-sample" method="post">
-                    <input type="hidden" asp-for="Id" />
-
-                    <div class="form-group">
-                        <label asp-for="Name">Enter name</label>
-                        <input asp-for="Name" type="text" class="form-control" placeholder="e.g. Pizza">
-                        <span class="text-danger" asp-validation-for="Name"></span>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <a class="btn btn-light" asp-action="Index">Cancel</a>
-                </form>
-            </div>
+<div class="card-box">
+    <h4 class="mb-3">Update form</h4>
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label class="form-label">Yemək Adı</label>
+            <input class="form-control" asp-for="Name">
         </div>
-    </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-light" asp-action="Index">Cancel</a>
+    </form>
 </div>
