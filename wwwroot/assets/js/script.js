@@ -1,4 +1,6 @@
+// =============================================
 // 1. GLOBAL STATE & SELECTORS
+// =============================================
 const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
 const spinBtn = document.getElementById("spin");
@@ -15,24 +17,152 @@ const modalTitle = document.getElementById("modalTitle");
 const confirmBtn = document.getElementById("modalConfirm");
 const cancelBtn = document.getElementById("modalCancel");
 
-let items = JSON.parse(localStorage.getItem("lunchPickerItems")) || [
+// Default elementlər - HƏMİŞƏ təkərdə olacaq
+const defaultItems = [
     { name: "Pizza" },
     { name: "Burger" },
     { name: "Sushi" },
     { name: "Chicken" },
     { name: "Salad" },
     { name: "Pasta" },
-    { name: "Oliver Salad" },
 ];
 
-let results = JSON.parse(localStorage.getItem("lunchPickerHistory")) || [];
+// Təkər elementləri
+let items = [...defaultItems];
+
+// İstifadəçi adı və silinmiş default-lar
+let currentUserName = "guest";
+let deletedDefaults = [];
+
+let results = [];
 let currentLang = localStorage.getItem("lang") || "az";
 let soundEnabled = JSON.parse(localStorage.getItem("soundEnabled")) ?? true;
 let darkMode = JSON.parse(localStorage.getItem("darkMode")) ?? false;
 let angle = 0;
 let spinning = false;
 
-// 2. DICTIONARY
+// =============================================
+// 2. API FUNCTIONS
+// =============================================
+
+// İstifadəçi məlumatını yüklə
+async function loadUserInfo() {
+    try {
+        const res = await fetch('/api/wheel/userinfo');
+        if (res.ok) {
+            const data = await res.json();
+            currentUserName = data.userName || "guest";
+        }
+    } catch (e) {
+        currentUserName = "guest";
+    }
+
+    // İstifadəçiyə xas silinmiş default-ları yüklə
+    deletedDefaults = JSON.parse(localStorage.getItem("deletedDefaults_" + currentUserName)) || [];
+    results = JSON.parse(localStorage.getItem("lunchPickerHistory_" + currentUserName)) || [];
+}
+
+// Silinmiş default-ları saxla
+function saveDeletedDefaults() {
+    localStorage.setItem("deletedDefaults_" + currentUserName, JSON.stringify(deletedDefaults));
+}
+
+// Təkər elementlərini yüklə
+async function fetchWheelItems() {
+    // Əvvəlcə silinmiş default-ları çıxar
+    items = defaultItems.filter(item =>
+        !deletedDefaults.includes(item.name.toLowerCase())
+    );
+
+    try {
+        const res = await fetch('/api/wheel/items');
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.length > 0) {
+                // Default-larda olmayan yeni elementləri əlavə et
+                const defaultNames = defaultItems.map(d => d.name.toLowerCase());
+                const newItems = data.filter(item =>
+                    !defaultNames.includes(item.name.toLowerCase())
+                ).map(item => ({ id: item.id, name: item.name }));
+
+                items = [...items, ...newItems];
+            }
+        }
+    } catch (e) {
+        console.log('API error, using defaults:', e);
+    }
+
+    console.log('User:', currentUserName, '| Items:', items);
+    drawWheel();
+}
+
+// Fırlatma nəticəsini database-ə yaz
+async function saveSpinToDatabase(wheelItemId, resultName) {
+    try {
+        await fetch('/api/wheel/spin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                wheelItemId: wheelItemId,
+                result: resultName
+            })
+        });
+    } catch (e) {
+        console.log('Could not save to database:', e);
+    }
+}
+
+// Tarixi database-dən oxu
+async function fetchResultsFromDB() {
+    try {
+        const res = await fetch('/api/wheel/results');
+        if (res.ok) {
+            const data = await res.json();
+            return data.map(r => ({
+                id: r.id,
+                name: r.name,
+                time: r.time,
+                userName: r.userName
+            }));
+        }
+    } catch (e) {
+        console.log('Could not fetch results:', e);
+    }
+    return results;
+}
+
+// Yeni element əlavə et
+async function addNewItemToDB(name) {
+    try {
+        const res = await fetch('/api/wheel/items', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name })
+        });
+        if (res.ok) {
+            return await res.json();
+        }
+    } catch (e) {
+        console.error('API error:', e);
+    }
+    return null;
+}
+
+// Elementi sil
+async function deleteItemFromDB(id) {
+    if (!id) return;
+    try {
+        await fetch(`/api/wheel/items/${id}`, {
+            method: 'DELETE'
+        });
+    } catch (e) {
+        console.error('Delete error:', e);
+    }
+}
+
+// =============================================
+// 3. DICTIONARY
+// =============================================
 const translations = {
     az: {
         title: "Lunch Wheel",
@@ -75,7 +205,9 @@ const translations = {
     },
 };
 
-// 3. AUDIO ENGINE
+// =============================================
+// 4. AUDIO ENGINE
+// =============================================
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 function playTone(freq, duration, vol = 0.05) {
     if (!soundEnabled) return;
@@ -94,8 +226,17 @@ const triggerWinSound = () => {
     playTone(523, 0.4, 0.08);
     setTimeout(() => playTone(659, 0.4, 0.08), 150);
 };
+
+// =============================================
+// 5. TƏKƏR ÇƏKMƏ
+// =============================================
 function drawWheel() {
     if (!canvas) return;
+    if (items.length === 0) {
+        console.log('No items to draw');
+        return;
+    }
+
     const totalWeight = items.reduce((sum, i) => sum + (i.weight || 1), 0);
     let startAngle = angle - Math.PI / 2;
 
@@ -122,7 +263,9 @@ function drawWheel() {
     });
 }
 
-// 5. SPIN LOGIC
+// =============================================
+// 6. FİRLATMA MƏNTİQİ
+// =============================================
 function spinWheel() {
     if (spinning || items.length < 2) return;
     spinning = true;
@@ -156,21 +299,17 @@ function spinWheel() {
     }
     animate();
 }
+
 function finalizeSpin() {
     spinning = false;
     spinBtn.disabled = false;
 
-    // DÜZƏLİŞ: weight yoxdursa 1 say
     const totalWeight = items.reduce((sum, i) => sum + (i.weight || 1), 0);
+    const normalizedAngle = (2 * Math.PI - (angle % (2 * Math.PI))) % (2 * Math.PI);
 
-    const normalizedAngle =
-        (2 * Math.PI - (angle % (2 * Math.PI))) % (2 * Math.PI);
-
-    let cumulative = 0,
-        winnerIndex = 0;
+    let cumulative = 0, winnerIndex = 0;
 
     for (let i = 0; i < items.length; i++) {
-        // DÜZƏLİŞ: weight yoxdursa 1 say
         cumulative += ((items[i].weight || 1) / totalWeight) * (2 * Math.PI);
         if (normalizedAngle <= cumulative) {
             winnerIndex = i;
@@ -179,6 +318,11 @@ function finalizeSpin() {
     }
 
     const winner = items[winnerIndex];
+
+    // Database-ə yaz
+    saveSpinToDatabase(winner.id, winner.name);
+
+    // LocalStorage-a yaz
     results.unshift({
         name: winner.name,
         time: new Date().toLocaleTimeString([], {
@@ -188,9 +332,14 @@ function finalizeSpin() {
         id: Date.now(),
     });
     saveData();
+
     showWinnerModal(winner, winnerIndex);
 }
-// 6. MODALS & API
+
+// =============================================
+// 7. MODAL PƏNCƏRƏLƏR
+// =============================================
+
 async function showWinnerModal(winner, index) {
     const t = translations[currentLang];
     modalTitle.textContent = t.winTitle;
@@ -231,16 +380,19 @@ function showManageMenu() {
     const t = translations[currentLang];
     modalTitle.textContent = t.modify;
     let html = `<div style="display:flex;flex-direction:column;gap:8px;width:100%;">`;
+
     items.forEach((item, i) => {
         html += `<div style="display:flex;align-items:center;padding:10px;border:1px solid ${darkMode ? "#374151" : "#e5e7eb"};border-radius:10px;background:${darkMode ? "#111827" : "#fff"};">
       <input type="text" value="${item.name}" onchange="updateItemName(${i}, this.value)" style="flex:1;border:none;outline:none;background:transparent;color:${darkMode ? "#fff" : "#000"};">
       <button onclick="removeItem(${i})" style="background:none;border:none;color:#ef4444;cursor:pointer;"><i class="fas fa-trash-alt"></i></button>
     </div>`;
     });
+
     html += `<div style="border:1.5px dashed #5b5df0;padding:10px;border-radius:10px;display:flex;align-items:center;">
     <input type="text" id="addInp" placeholder="${t.placeholder}" style="flex:1;border:none;outline:none;background:transparent;color:${darkMode ? "#fff" : "#000"};">
     <i class="fas fa-plus" onclick="addNewItem()" style="color:#5b5df0;cursor:pointer;"></i>
   </div></div>`;
+
     modalBody.innerHTML = html;
     confirmBtn.textContent = t.ok;
     confirmBtn.onclick = () => modal.classList.remove("active");
@@ -248,18 +400,26 @@ function showManageMenu() {
     modal.classList.add("active");
 }
 
-// DÜZƏLİŞ: Scroll üçün xüsusi class və limit
-function showHistory() {
+async function showHistory() {
     const t = translations[currentLang];
     modalTitle.textContent = t.historyTitle;
-    // 'modal-scroll-content' class-ı əlavə edildi
+
+    const apiResults = await fetchResultsFromDB();
+
     let html = `<div class="modal-scroll-content" style="display:flex;flex-direction:column;gap:8px;">`;
-    results.forEach((r, i) => {
-        html += `<div style="display:flex;justify-content:space-between;padding:12px;background:${darkMode ? "#111827" : "#f9fafb"};border-radius:10px;border:1px solid ${darkMode ? "#374151" : "#e5e7eb"};">
-      <span style="font-weight:600;">#${results.length - i} ${r.name}</span><span style="font-size:11px;color:#9ca3af;">${r.time}</span>
-    </div>`;
-    });
+
+    if (apiResults.length === 0) {
+        html += `<div style="text-align:center;padding:20px;color:#9ca3af;">Nəticə yoxdur</div>`;
+    } else {
+        apiResults.forEach((r, i) => {
+            html += `<div style="display:flex;justify-content:space-between;padding:12px;background:${darkMode ? "#111827" : "#f9fafb"};border-radius:10px;border:1px solid ${darkMode ? "#374151" : "#e5e7eb"};">
+                <span style="font-weight:600;">#${apiResults.length - i} ${r.name}</span>
+                <span style="font-size:11px;color:#9ca3af;">${r.time}</span>
+            </div>`;
+        });
+    }
     html += `</div>`;
+
     modalBody.innerHTML = html;
     confirmBtn.textContent = t.ok;
     confirmBtn.onclick = () => modal.classList.remove("active");
@@ -267,12 +427,14 @@ function showHistory() {
     modal.classList.add("active");
 }
 
-// DÜZƏLİŞ: X düyməsi üçün funksiya
 function closeCustomModal() {
     modal.classList.remove("active");
 }
 
-// 7. UTILS & DARK MODE
+// =============================================
+// 8. ELEMENT ƏMƏLİYYATLARI
+// =============================================
+
 function updateItemName(idx, val) {
     if (val.trim()) {
         items[idx].name = val.trim();
@@ -280,26 +442,53 @@ function updateItemName(idx, val) {
         drawWheel();
     }
 }
-function removeItem(idx) {
+
+async function removeItem(idx) {
+    const item = items[idx];
+
+    const defaultNames = defaultItems.map(d => d.name.toLowerCase());
+    if (defaultNames.includes(item.name.toLowerCase())) {
+        deletedDefaults.push(item.name.toLowerCase());
+        saveDeletedDefaults();  // <-- İstifadəçiyə xas saxla
+    }
+
+    if (item.id) {
+        await deleteItemFromDB(item.id);
+    }
+
     items.splice(idx, 1);
     saveData();
     drawWheel();
     showManageMenu();
 }
-function addNewItem() {
+
+async function addNewItem() {
     const inp = document.getElementById("addInp");
     if (inp && inp.value.trim()) {
-        items.push({ name: inp.value.trim(), weight: 1 });
+        const name = inp.value.trim();
+
+        const result = await addNewItemToDB(name);
+
+        if (result && result.id) {
+            items.push({ id: result.id, name: name, weight: 1 });
+        } else {
+            items.push({ name: name, weight: 1 });
+        }
+
         saveData();
         drawWheel();
         showManageMenu();
     }
 }
+
 function saveData() {
-    localStorage.setItem("lunchPickerItems", JSON.stringify(items));
-    localStorage.setItem("lunchPickerHistory", JSON.stringify(results));
+    localStorage.setItem("lunchPickerItems_" + currentUserName, JSON.stringify(items));
+    localStorage.setItem("lunchPickerHistory_" + currentUserName, JSON.stringify(results));
 }
 
+// =============================================
+// 9. DARK MODE
+// =============================================
 function applyDarkMode() {
     document.body.classList.toggle("dark", darkMode);
     const btn = document.getElementById("themeToggleBtn");
@@ -310,7 +499,9 @@ function applyDarkMode() {
 const moonIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 const sunIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
 
-// 8. EVENT LISTENERS
+// =============================================
+// 10. EVENT LISTENERS
+// =============================================
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") modal.classList.remove("active");
     if (e.key === "Enter" && modal.classList.contains("active"))
@@ -346,6 +537,7 @@ shareBtn.onclick = () => {
         .writeText(window.location.href)
         .then(() => showToast(translations[currentLang].copyMsg));
 };
+
 fullscreenBtn.onclick = () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
@@ -367,10 +559,12 @@ fullscreenBtn.onclick = () => {
         );
     }
 };
+
 langToggle.onclick = (e) => {
     e.stopPropagation();
     langMenu.style.display = langMenu.style.display === "flex" ? "none" : "flex";
 };
+
 document.querySelectorAll(".lang-menu div").forEach((el) => {
     el.onclick = () => {
         currentLang = el.getAttribute("data-lang");
@@ -378,6 +572,7 @@ document.querySelectorAll(".lang-menu div").forEach((el) => {
         location.reload();
     };
 });
+
 document.addEventListener("click", () => (langMenu.style.display = "none"));
 
 function initDarkMode() {
@@ -393,9 +588,16 @@ function initDarkMode() {
     applyDarkMode();
 }
 
-// 9. START
+// =============================================
+// 11. BAŞLANĞIC
+// =============================================
 initDarkMode();
-drawWheel();
+
+// Əvvəlcə istifadəçi məlumatını yüklə, sonra təkəri çək
+loadUserInfo().then(() => {
+    fetchWheelItems();
+});
+
 document.querySelector(".title").textContent = translations[currentLang].title;
 spinBtn.textContent = translations[currentLang].spin;
 modifyBtn.textContent = translations[currentLang].modify;

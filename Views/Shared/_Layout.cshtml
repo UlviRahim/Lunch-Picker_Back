@@ -1,20 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using LPicker.Models
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunch Wheel - Pro Edition</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="~/assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
 
     <div id="toast" class="toast"></div>
 
     <header class="navbar">
         <div class="logo">
-            <img src="./assets/images/wheel-logo.png" alt="Logo" class="logo-img">
+            <img src="~/assets/images/wheel-logo.png" alt="Logo" class="logo-img">
             <span>RandomWheel</span>
         </div>
         <div class="nav-right">
@@ -26,7 +30,34 @@
                     <div data-lang="ru">Русский</div>
                 </div>
             </div>
-            <button class="signin-btn" data-i18n="signin">Daxil ol</button>
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <!-- Giriş edilib - Çıxış düyməsi -->
+                <span style="color: #fff; margin-right: 10px; font-size: 14px;">
+                    Salam, @User.Identity?.Name
+                </span>
+
+                @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                {
+                    <a href="/AdminPanel/Dashboard" class="signin-btn" style="text-decoration: none; margin-right: 8px;">
+                        <i class="fas fa-cog"></i> AdminPanel
+                    </a>
+                }
+
+                <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                    <button type="submit" class="signin-btn" style="background: #ef4444;">
+                        <i class="fas fa-sign-out-alt"></i> Çıxış et
+                    </button>
+                </form>
+            }
+            else
+            {
+                <!-- Giriş edilməyib - Daxil ol düyməsi -->
+                <a href="/Account/Login" class="signin-btn" style="text-decoration: none;">
+                    <i class="fas fa-sign-in-alt"></i> Daxil ol
+                </a>
+            }
         </div>
     </header>
     <div>
@@ -80,6 +111,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="~/assets/js/script.js"></script>
 </body>
 </html>

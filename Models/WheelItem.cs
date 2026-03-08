@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
-
-namespace LPicker.Models
+﻿namespace LPicker.Models
 {
     public class WheelItem : BaseModel
     {
-        [Required, MaxLength(50)]
         public string Name { get; set; }
+        public string? UserId { get; set; }
+        public AppUser? User { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -21,7 +21,7 @@
                     <tr>
                         <td>@count</td>
                         <td>@(item.User?.UserName ?? "Qonaq")</td>
-                        <td>@item.WheelItem?.Name</td>
+                        <td>@(item.Result ?? item.WheelItem?.Name ?? "Unknown")</td>
                         <td>@item.SpinDate.ToString("dd.MM.yyyy HH:mm")</td>
                     </tr>
                     count++;

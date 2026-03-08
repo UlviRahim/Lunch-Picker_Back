@@ -1,48 +1,49 @@
-﻿@model IEnumerable<LPicker.Models.AppUser>
+﻿@using LPicker.Models
+@model List<AppUser>
 @{
     ViewData["Title"] = "İstifadəçilər";
-}
-@{
     var userRoles = ViewBag.UserRoles as Dictionary<string, IList<string>>;
 }
 
 <div class="card-box">
-    <h4 class="mb-3">İstifadəçilər</h4>
+    <h4 class="mb-3">👥 İstifadəçilər</h4>
     <div class="table-responsive">
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th>İstifadəçi</th>
+                    <th>#</th>
+                    <th>İstifadəçi adı</th>
                     <th>Email</th>
-                    <th>Rol</th>
-                    <th>Dəyiş</th>
+                    <th>Cari Rol</th>
+                    <th>Rolu Dəyiş</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var user in Model)
                 {
-                    var roles = userRoles.ContainsKey(user.Id) ? userRoles[user.Id] : new List<string>();
+                    var roles = userRoles != null && userRoles.ContainsKey(user.Id)
+                    ? userRoles[user.Id]
+                    : new List<string>();
+                    var currentRole = roles.FirstOrDefault() ?? "Rol yoxdur";
+
                     <tr>
+                        <td>@user.Id.Substring(0, 8)...</td>
                         <td>@user.UserName</td>
                         <td>@user.Email</td>
                         <td>
-                            @foreach (var role in roles)
-                            {
-                                var badge = role == "SuperAdmin" ? "bg-danger" : role == "Admin" ? "bg-warning text-dark" : "bg-primary";
-                                <span class="badge @badge">@role</span>
-                            }
+                            <span class="badge @(currentRole == "SuperAdmin" ? "bg-danger" : currentRole == "Admin" ? "bg-warning" : "bg-info")">
+                                @currentRole
+                            </span>
                         </td>
                         <td>
-                            @if (!roles.Contains("SuperAdmin"))
-                            {
-                                <form asp-action="ChangeRole" method="post" class="d-inline">
-                                    <input type="hidden" name="userId" value="@user.Id" />
-                                    <select name="newRole" class="form-select form-select-sm d-inline" style="width:auto" onchange="this.form.submit()">
-                                        <option value="Member" selected="@roles.Contains("Member")">Member</option>
-                                        <option value="Admin" selected="@roles.Contains("Admin")">Admin</option>
-                                    </select>
-                                </form>
-                            }
+                            <form method="post" asp-action="ChangeRole" style="display:inline;">
+                                <input type="hidden" name="userId" value="@user.Id" />
+                                <select name="newRole" onchange="this.form.submit()" class="form-select form-select-sm" style="width: auto;">
+                                    <option value="Member" selected="@(currentRole == "Member")">Member</option>
+                                    <option value="Admin" selected="@(currentRole == "Admin")">Admin</option>
+                                    <option value="SuperAdmin" selected="@(currentRole == "SuperAdmin")">SuperAdmin</option>
+                                </select>
+                            </form>
                         </td>
                     </tr>
                 }

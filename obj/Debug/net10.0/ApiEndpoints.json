@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "ContainingType": "LPicker.Controllers.Api.WheelApiController",
+    "Method": "GetItems",
+    "RelativePath": "api/wheel/items",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LPicker.Controllers.Api.WheelApiController",
+    "Method": "AddItem",
+    "RelativePath": "api/wheel/items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LPicker.Controllers.Api.AddItemRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LPicker.Controllers.Api.WheelApiController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/wheel/items/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LPicker.Controllers.Api.WheelApiController",
+    "Method": "GetResults",
+    "RelativePath": "api/wheel/results",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LPicker.Controllers.Api.WheelApiController",
+    "Method": "SaveSpin",
+    "RelativePath": "api/wheel/spin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "LPicker.Controllers.Api.SpinRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LPicker.Controllers.Api.WheelApiController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/wheel/userinfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

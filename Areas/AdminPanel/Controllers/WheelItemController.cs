@@ -34,6 +34,7 @@ namespace LPicker.Areas.AdminPanel.Controllers
             if (!ModelState.IsValid) return View(item);
 
             item.IsDeleted = false;
+            item.UserId = null;  // <-- Admin əlavə edəndə NULL olur (hamı görür)
             _context.WheelItems.Add(item);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -80,6 +81,7 @@ namespace LPicker.Areas.AdminPanel.Controllers
             if (existItem == null) return NotFound();
 
             existItem.Name = item.Name;
+            existItem.UserId = null; 
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }

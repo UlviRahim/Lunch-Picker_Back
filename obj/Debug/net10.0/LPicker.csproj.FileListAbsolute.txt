@@ -272,7 +272,6 @@ C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.genruntim
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\ref\LPicker.dll
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.RazorAssemblyInfo.cache
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.RazorAssemblyInfo.cs
-C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\z5sdtp603t-{0}-j3fyoly6l4-j3fyoly6l4.gz
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\6993j3ubne-{0}-5cfhfmwa46-5cfhfmwa46.gz
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\0m7up0lfwz-{0}-3w5og6hl44-3w5og6hl44.gz
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\p3sj23ffyq-{0}-i0mtw86ovx-i0mtw86ovx.gz
@@ -304,3 +303,4 @@ C:\Users\ulvir\OneDrive\İş masası\LPicker\bin\Debug\net10.0\Microsoft.AspNetC
 C:\Users\ulvir\OneDrive\İş masası\LPicker\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.sourcelink.json
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\z5sdtp603t-{0}-w2eorc8v1u-w2eorc8v1u.gz
