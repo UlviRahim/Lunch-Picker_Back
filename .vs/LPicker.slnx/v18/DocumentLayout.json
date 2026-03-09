@@ -150,8 +150,7 @@
               "RelativeToolTip": "Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
               "ViewState": "AgIAAFMAAAAAAAAAAAAowGsAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T11:52:56.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T11:52:56.994Z"
             },
             {
               "$type": "Document",
@@ -163,8 +162,7 @@
               "RelativeToolTip": "Areas\\AdminPanel\\Controllers\\UserController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T12:30:12.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-07T12:30:12.468Z"
             },
             {
               "$type": "Document",
@@ -176,8 +174,7 @@
               "RelativeToolTip": "Areas\\AdminPanel\\Views\\User\\Index.cshtml",
               "ViewState": "AgIAABYAAAAAAAAAAAAowDIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T12:31:18.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-07T12:31:18.048Z"
             },
             {
               "$type": "Document",
@@ -189,8 +186,7 @@
               "RelativeToolTip": "Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAGQAAAAAAAAAAAAowIIAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T11:42:58.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T11:42:58.224Z"
             },
             {
               "$type": "Document",
@@ -202,8 +198,7 @@
               "RelativeToolTip": "Areas\\AdminPanel\\Controllers\\WheelItemController.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAkwFMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T21:11:49.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T21:11:49.748Z"
             },
             {
               "$type": "Document",
@@ -213,7 +208,7 @@
               "RelativeDocumentMoniker": "Controllers\\Api\\WheelApiController.cs",
               "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\Api\\WheelApiController.cs",
               "RelativeToolTip": "Controllers\\Api\\WheelApiController.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAowJoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAgwHYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-07T17:58:13.771Z",
               "EditorCaption": ""
@@ -226,10 +221,9 @@
               "RelativeDocumentMoniker": "wwwroot\\assets\\js\\script.js",
               "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\wwwroot\\assets\\js\\script.js",
               "RelativeToolTip": "wwwroot\\assets\\js\\script.js",
-              "ViewState": "AgIAAD0CAAAAAAAAAAAowE4CAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-03-05T20:45:12.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T20:45:12.238Z"
             },
             {
               "$type": "Document",
@@ -241,8 +235,7 @@
               "RelativeToolTip": "Areas\\AdminPanel\\Controllers\\DashboardController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAowDEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T21:11:30.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T21:11:30.988Z"
             },
             {
               "$type": "Document",
@@ -254,8 +247,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAFkAAAAAAAAAAAAgwHMAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T21:15:33.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-07T21:15:33.386Z"
             },
             {
               "$type": "Document",

@@ -1,6 +1,4 @@
-// =============================================
 // 1. GLOBAL STATE & SELECTORS
-// =============================================
 const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
 const spinBtn = document.getElementById("spin");
@@ -17,15 +15,8 @@ const modalTitle = document.getElementById("modalTitle");
 const confirmBtn = document.getElementById("modalConfirm");
 const cancelBtn = document.getElementById("modalCancel");
 
-// Default elementlər - HƏMİŞƏ təkərdə olacaq
-const defaultItems = [
-    { name: "Pizza" },
-    { name: "Burger" },
-    { name: "Sushi" },
-    { name: "Chicken" },
-    { name: "Salad" },
-    { name: "Pasta" },
-];
+// Default elementlər (database-də olduqda boş saxla)
+const defaultItems = [];
 
 // Təkər elementləri
 let items = [...defaultItems];
@@ -41,11 +32,10 @@ let darkMode = JSON.parse(localStorage.getItem("darkMode")) ?? false;
 let angle = 0;
 let spinning = false;
 
-// =============================================
 // 2. API FUNCTIONS
-// =============================================
 
-// İstifadəçi məlumatını yüklə
+
+// Dowland Users Data
 async function loadUserInfo() {
     try {
         const res = await fetch('/api/wheel/userinfo');
@@ -57,19 +47,19 @@ async function loadUserInfo() {
         currentUserName = "guest";
     }
 
-    // İstifadəçiyə xas silinmiş default-ları yüklə
+   
     deletedDefaults = JSON.parse(localStorage.getItem("deletedDefaults_" + currentUserName)) || [];
     results = JSON.parse(localStorage.getItem("lunchPickerHistory_" + currentUserName)) || [];
 }
 
-// Silinmiş default-ları saxla
+// Save Deleted Elements
 function saveDeletedDefaults() {
     localStorage.setItem("deletedDefaults_" + currentUserName, JSON.stringify(deletedDefaults));
 }
 
-// Təkər elementlərini yüklə
+// Dowlanding Elements 
 async function fetchWheelItems() {
-    // Əvvəlcə silinmiş default-ları çıxar
+
     items = defaultItems.filter(item =>
         !deletedDefaults.includes(item.name.toLowerCase())
     );
@@ -96,7 +86,7 @@ async function fetchWheelItems() {
     drawWheel();
 }
 
-// Fırlatma nəticəsini database-ə yaz
+// SpinResults to Database
 async function saveSpinToDatabase(wheelItemId, resultName) {
     try {
         await fetch('/api/wheel/spin', {
@@ -112,7 +102,7 @@ async function saveSpinToDatabase(wheelItemId, resultName) {
     }
 }
 
-// Tarixi database-dən oxu
+// Datetime
 async function fetchResultsFromDB() {
     try {
         const res = await fetch('/api/wheel/results');
@@ -131,7 +121,7 @@ async function fetchResultsFromDB() {
     return results;
 }
 
-// Yeni element əlavə et
+// Add New Element
 async function addNewItemToDB(name) {
     try {
         const res = await fetch('/api/wheel/items', {
@@ -148,7 +138,7 @@ async function addNewItemToDB(name) {
     return null;
 }
 
-// Elementi sil
+// Element Delete
 async function deleteItemFromDB(id) {
     if (!id) return;
     try {
@@ -160,9 +150,8 @@ async function deleteItemFromDB(id) {
     }
 }
 
-// =============================================
 // 3. DICTIONARY
-// =============================================
+
 const translations = {
     az: {
         title: "Lunch Wheel",
@@ -205,12 +194,25 @@ const translations = {
     },
 };
 
-// =============================================
-// 4. AUDIO ENGINE
-// =============================================
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// 4. AUDIO ENGINE (FIXED)
+
+let audioCtx = null;
+
+function initAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+}
+
 function playTone(freq, duration, vol = 0.05) {
     if (!soundEnabled) return;
+    if (!audioCtx) initAudio();
+    if (audioCtx.state === 'suspended') return;
+
     const o = audioCtx.createOscillator();
     const g = audioCtx.createGain();
     o.connect(g);
@@ -220,6 +222,7 @@ function playTone(freq, duration, vol = 0.05) {
     o.start();
     o.stop(audioCtx.currentTime + duration);
 }
+
 const triggerTickSound = () => playTone(280, 0.05, 0.02);
 const triggerClickSound = () => playTone(450, 0.08, 0.03);
 const triggerWinSound = () => {
@@ -227,9 +230,8 @@ const triggerWinSound = () => {
     setTimeout(() => playTone(659, 0.4, 0.08), 150);
 };
 
-// =============================================
 // 5. TƏKƏR ÇƏKMƏ
-// =============================================
+// 
 function drawWheel() {
     if (!canvas) return;
     if (items.length === 0) {
@@ -263,10 +265,9 @@ function drawWheel() {
     });
 }
 
-// =============================================
 // 6. FİRLATMA MƏNTİQİ
-// =============================================
 function spinWheel() {
+    initAudio();  // Audio-nu başlat
     if (spinning || items.length < 2) return;
     spinning = true;
     spinBtn.disabled = true;
@@ -319,10 +320,10 @@ function finalizeSpin() {
 
     const winner = items[winnerIndex];
 
-    // Database-ə yaz
+    // Database
     saveSpinToDatabase(winner.id, winner.name);
 
-    // LocalStorage-a yaz
+    // LocalStorage
     results.unshift({
         name: winner.name,
         time: new Date().toLocaleTimeString([], {
@@ -336,9 +337,8 @@ function finalizeSpin() {
     showWinnerModal(winner, winnerIndex);
 }
 
-// =============================================
 // 7. MODAL PƏNCƏRƏLƏR
-// =============================================
+// 
 
 async function showWinnerModal(winner, index) {
     const t = translations[currentLang];
@@ -431,9 +431,9 @@ function closeCustomModal() {
     modal.classList.remove("active");
 }
 
-// =============================================
+// 
 // 8. ELEMENT ƏMƏLİYYATLARI
-// =============================================
+// 
 
 function updateItemName(idx, val) {
     if (val.trim()) {
@@ -449,7 +449,7 @@ async function removeItem(idx) {
     const defaultNames = defaultItems.map(d => d.name.toLowerCase());
     if (defaultNames.includes(item.name.toLowerCase())) {
         deletedDefaults.push(item.name.toLowerCase());
-        saveDeletedDefaults();  // <-- İstifadəçiyə xas saxla
+        saveDeletedDefaults();
     }
 
     if (item.id) {
@@ -486,9 +486,7 @@ function saveData() {
     localStorage.setItem("lunchPickerHistory_" + currentUserName, JSON.stringify(results));
 }
 
-// =============================================
 // 9. DARK MODE
-// =============================================
 function applyDarkMode() {
     document.body.classList.toggle("dark", darkMode);
     const btn = document.getElementById("themeToggleBtn");
@@ -499,9 +497,9 @@ function applyDarkMode() {
 const moonIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 const sunIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
 
-// =============================================
+
 // 10. EVENT LISTENERS
-// =============================================
+
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") modal.classList.remove("active");
     if (e.key === "Enter" && modal.classList.contains("active"))
@@ -588,12 +586,10 @@ function initDarkMode() {
     applyDarkMode();
 }
 
-// =============================================
 // 11. BAŞLANĞIC
-// =============================================
+
 initDarkMode();
 
-// Əvvəlcə istifadəçi məlumatını yüklə, sonra təkəri çək
 loadUserInfo().then(() => {
     fetchWheelItems();
 });
