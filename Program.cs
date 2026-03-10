@@ -1,5 +1,6 @@
 using LPicker.Data;
 using LPicker.Models;
+using LPicker.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,13 +25,15 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 .AddDefaultTokenProviders()
 .AddEntityFrameworkStores<LunchPickerDbContext>();
 
+builder.Services.AddScoped<IEmailService, EmailService>();
+
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers(); 
+app.MapControllers();
 
 app.MapControllerRoute(
     name: "areas",

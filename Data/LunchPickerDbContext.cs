@@ -6,15 +6,15 @@ namespace LPicker.Data
 {
     public class LunchPickerDbContext : IdentityDbContext<AppUser>
     {
-        public LunchPickerDbContext(DbContextOptions<LunchPickerDbContext> options)
-            : base(options)
-        {
-        }
+        public LunchPickerDbContext(DbContextOptions<LunchPickerDbContext> options) : base(options) { }
 
-        // Çarx elementləri
         public DbSet<WheelItem> WheelItems { get; set; }
-
-        // Fırlatma nəticələri
         public DbSet<SpinResult> SpinResults { get; set; }
+        public DbSet<PasswordReset> PasswordResets { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

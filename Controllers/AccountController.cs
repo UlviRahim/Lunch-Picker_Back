@@ -1,7 +1,11 @@
-﻿using LPicker.Models;
+﻿using LPicker.Data;
+using LPicker.Models;
+using LPicker.Services;
 using LPicker.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace LPicker.Controllers
 {
@@ -10,14 +14,20 @@ namespace LPicker.Controllers
         private SignInManager<AppUser> _signInManager { get; }
         private UserManager<AppUser> _userManager { get; }
         private RoleManager<IdentityRole> _roleManager { get; }
+        private readonly IEmailService _emailService;
+        private readonly LunchPickerDbContext _context;
 
         public AccountController(SignInManager<AppUser> signInManager,
                                  UserManager<AppUser> userManager,
-                                 RoleManager<IdentityRole> roleManager)
+                                 RoleManager<IdentityRole> roleManager,
+                                 IEmailService emailService,
+                                 LunchPickerDbContext context)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _roleManager = roleManager;
+            _emailService = emailService;
+            _context = context;
         }
 
         public IActionResult Register()
@@ -94,6 +104,118 @@ namespace LPicker.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+            {
+                return RedirectToAction("ForgotPasswordConfirmation");
+            }
+
+            var random = new System.Random();
+            var code = random.Next(100000, 999999).ToString();
+
+            var passwordReset = new PasswordReset
+            {
+                Email = model.Email,
+                Code = code,
+                CreatedAt = DateTime.UtcNow,
+                ExpiresAt = DateTime.UtcNow.AddMinutes(15),
+                IsUsed = false
+            };
+
+            _context.PasswordResets.Add(passwordReset);
+            await _context.SaveChangesAsync();
+
+            await _emailService.SendPasswordResetCodeAsync(model.Email, code);
+
+            TempData["ResetEmail"] = model.Email;
+
+            return RedirectToAction("ForgotPasswordConfirmation");
+        }
+
+        [HttpGet]
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                email = TempData["ResetEmail"]?.ToString();
+            }
+
+            if (string.IsNullOrEmpty(email)) return BadRequest();
+
+            var model = new ResetPasswordVM { Email = email };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var resetRecord = _context.PasswordResets
+                .Where(r => r.Email == model.Email && r.Code == model.Code && !r.IsUsed)
+                .OrderByDescending(r => r.CreatedAt)
+                .FirstOrDefault();
+
+            if (resetRecord == null)
+            {
+                ModelState.AddModelError("", "Kod yanlışdır və ya istifadə edilib");
+                return View(model);
+            }
+
+            if (resetRecord.ExpiresAt < DateTime.UtcNow)
+            {
+                ModelState.AddModelError("", "Kodun müddəti bitib");
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null) return RedirectToAction("Login");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, model.NewPassword);
+
+            if (result.Succeeded)
+            {
+                resetRecord.IsUsed = true;
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("ResetPasswordSuccess");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ResetPasswordSuccess()
+        {
+            return View();
         }
 
         public async Task<IActionResult> CreateRoles()

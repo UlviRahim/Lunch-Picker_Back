@@ -10,21 +10,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RandomWheel</title>
-    <link rel="stylesheet" href="~/assets/admin/vendors/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="~/assets/admin/vendors/base/vendor.bundle.base.css" />
-    <link rel="stylesheet" href="~/assets/admin/css/style.css" />
+    <title>@ViewData["Title"] - LPicker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .auth-wrapper {
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
         }
 
         .auth-card {
@@ -34,6 +35,7 @@
             overflow: hidden;
             max-width: 420px;
             width: 100%;
+            margin: 20px;
         }
 
         .auth-header {
@@ -84,23 +86,6 @@
                 outline: none;
             }
 
-        .input-icon {
-            position: relative;
-        }
-
-            .input-icon i {
-                position: absolute;
-                left: 15px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: #999;
-                font-size: 18px;
-            }
-
-            .input-icon input {
-                padding-left: 45px;
-            }
-
         .btn-login {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
@@ -117,6 +102,29 @@
             .btn-login:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .remember-forgot label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin: 0;
+                font-weight: normal;
+                color: #666;
+                cursor: pointer;
+            }
+
+            .remember-forgot a {
+                color: #667eea;
+                font-size: 14px;
+                text-decoration: none;
             }
 
         .auth-footer {
@@ -150,29 +158,6 @@
             font-size: 22px;
         }
 
-        .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-            .remember-forgot label {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                margin: 0;
-                font-weight: normal;
-                color: #666;
-                cursor: pointer;
-            }
-
-            .remember-forgot a {
-                color: #667eea;
-                font-size: 14px;
-                text-decoration: none;
-            }
-
         .alert-danger {
             background: #fee2e2;
             border: 1px solid #ef4444;
@@ -185,60 +170,46 @@
     </style>
 </head>
 <body>
-    <div class="auth-wrapper">
-        <div class="auth-card">
-            <div class="auth-header">
-                <div class="logo-container">
-                    <div class="logo-icon">🎯</div>
-                    <h3>RandomWheel</h3>
-                </div>
-                <p>Xoş gəlmisiniz! Hesabınıza daxil olun</p>
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="logo-container">
+                <div class="logo-icon">🎯</div>
+                <h3>LPicker</h3>
             </div>
-            <div class="auth-body">
-                @if (ViewBag.Error != null)
-                {
-                    <div class="alert-danger">
-                        @ViewBag.Error
-                    </div>
-                }
+            <p>Xoş gəlmisiniz! Hesabınıza daxil olun</p>
+        </div>
+        <div class="auth-body">
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div asp-validation-summary="All" class="alert-danger"></div>
+            }
 
-                <form asp-action="Login" asp-controller="Account" method="post">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <div class="input-icon">
-                            <i class="mdi mdi-email"></i>
-                            <input type="email" name="Email" class="form-control" placeholder="email@example.com" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Şifrə</label>
-                        <div class="input-icon">
-                            <i class="mdi mdi-lock"></i>
-                            <input type="password" name="Password" class="form-control" placeholder="••••••••" required />
-                        </div>
-                    </div>
-
-                    <div class="remember-forgot">
-                        <label>
-                            <input type="checkbox" name="RememberMe" value="true" />
-                            Məni xatırla
-                        </label>
-                        <a href="#">Şifrəni unutdun?</a>
-                    </div>
-
-                    <button type="submit" class="btn-login">
-                        <i class="mdi mdi-login"></i> Daxil ol
-                    </button>
-                </form>
-
-                <div class="auth-footer">
-                    Hesabınız yoxdur? <a href="/Account/Register">Qeydiyyatdan keçin</a>
+            <form asp-action="Login" asp-controller="Account" method="post">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="Email" class="form-control" placeholder="email@example.com" required />
                 </div>
+
+                <div class="form-group">
+                    <label>Şifrə</label>
+                    <input type="password" name="Password" class="form-control" placeholder="••••••••" required />
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="RememberMe" value="true" />
+                        Məni xatırla
+                    </label>
+                    <a href="/Account/ForgotPassword">Şifrəni unutdun?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Daxil ol</button>
+            </form>
+
+            <div class="auth-footer">
+                Hesabınız yoxdur? <a href="/Account/Register">Qeydiyyatdan keçin</a>
             </div>
         </div>
     </div>
-
-    <script src="~/assets/admin/vendors/base/vendor.bundle.base.js"></script>
 </body>
 </html>

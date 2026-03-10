@@ -3,6 +3,42 @@
   "WorkspaceRootPath": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\data\\lunchpickerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:data\\lunchpickerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\views\\account\\forgotpasswordconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:views\\account\\forgotpasswordconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\viewmodels\\resetpasswordvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:viewmodels\\resetpasswordvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\viewmodels\\forgotpasswordvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:viewmodels\\forgotpasswordvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\controllers\\api\\wheelapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:controllers\\api\\wheelapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,14 +87,6 @@
       "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:models\\spinresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\data\\lunchpickerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:data\\lunchpickerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\viewmodels\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:viewmodels\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -87,10 +115,6 @@
       "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:areas\\adminpanel\\views\\wheelitem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -109,10 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9C70713C-A68D-AA71-39A2-A520CE6D852F}|LPicker.csproj|c:\\users\\ulvir\\onedrive\\\u0130\u015F masas\u0131\\lpicker\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -138,59 +158,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAowGsAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T11:52:56.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Areas\\AdminPanel\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwC8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T12:30:12.468Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\User\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\User\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\User\\Index.cshtml",
-              "RelativeToolTip": "Areas\\AdminPanel\\Views\\User\\Index.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAowDIAAAAQAAAAAAAAAA==",
+              "Title": "ForgotPasswordConfirmation.cshtml",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\ForgotPasswordConfirmation.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\ForgotPasswordConfirmation.cshtml",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\ForgotPasswordConfirmation.cshtml",
+              "RelativeToolTip": "Views\\Account\\ForgotPasswordConfirmation.cshtml",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAgwJIAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T12:31:18.048Z"
+              "WhenOpened": "2026-03-10T17:16:27.805Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAowIIAAAAHAAAAAAAAAA==",
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\ResetPassword.cshtml",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeToolTip": "Views\\Account\\ResetPassword.cshtml",
+              "ViewState": "AgIAALcAAAAAAAAAAAAgwNkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T11:42:58.224Z"
+              "WhenOpened": "2026-03-10T16:48:00.464Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwC0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T19:31:51.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAAAgwNYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T12:13:07.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LunchPickerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Data\\LunchPickerDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\LunchPickerDbContext.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Data\\LunchPickerDbContext.cs",
+              "RelativeToolTip": "Data\\LunchPickerDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T19:30:42.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAiwOoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T19:55:51.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\EmailService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T16:47:11.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResetPasswordVM.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\ViewModels\\ResetPasswordVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ResetPasswordVM.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\ViewModels\\ResetPasswordVM.cs",
+              "RelativeToolTip": "ViewModels\\ResetPasswordVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T16:31:02.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ForgotPasswordVM.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\ViewModels\\ForgotPasswordVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ForgotPasswordVM.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\ViewModels\\ForgotPasswordVM.cs",
+              "RelativeToolTip": "ViewModels\\ForgotPasswordVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T16:33:24.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "WheelItemController.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\WheelItemController.cs",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Controllers\\WheelItemController.cs",
@@ -202,20 +291,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Areas\\AdminPanel\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAowIIAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T11:42:58.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "Areas\\AdminPanel\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowDIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-07T12:31:18.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Areas\\AdminPanel\\Controllers\\UserController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T12:30:12.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "WheelApiController.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\Api\\WheelApiController.cs",
               "RelativeDocumentMoniker": "Controllers\\Api\\WheelApiController.cs",
               "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\Api\\WheelApiController.cs",
               "RelativeToolTip": "Controllers\\Api\\WheelApiController.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAgwHYAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAgwG4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T17:58:13.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-07T17:58:13.771Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "script.js",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\wwwroot\\assets\\js\\script.js",
               "RelativeDocumentMoniker": "wwwroot\\assets\\js\\script.js",
@@ -227,7 +351,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Areas\\AdminPanel\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAowGsAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-06T11:52:56.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Controllers\\DashboardController.cs",
@@ -239,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -251,19 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAUwCoAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T19:31:51.078Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\SpinResult\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\SpinResult\\Index.cshtml",
@@ -275,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "SpinResultController.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Controllers\\SpinResultController.cs",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Controllers\\SpinResultController.cs",
@@ -287,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 20,
               "Title": "SpinResult.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Models\\SpinResult.cs",
               "RelativeDocumentMoniker": "Models\\SpinResult.cs",
@@ -299,19 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "LunchPickerDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Data\\LunchPickerDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\LunchPickerDbContext.cs",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Data\\LunchPickerDbContext.cs",
-              "RelativeToolTip": "Data\\LunchPickerDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAswBMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T19:30:42.121Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": "AppUser.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Models\\AppUser.cs",
               "RelativeDocumentMoniker": "Models\\AppUser.cs",
@@ -323,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 24,
               "Title": "BaseModel.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Models\\BaseModel.cs",
               "RelativeDocumentMoniker": "Models\\BaseModel.cs",
@@ -335,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "20260307174053_AddMissingColumns.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Migrations\\20260307174053_AddMissingColumns.cs",
               "RelativeDocumentMoniker": "Migrations\\20260307174053_AddMissingColumns.cs",
@@ -347,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "Update.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\WheelItem\\Update.cshtml",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\WheelItem\\Update.cshtml",
@@ -359,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "LoginVM.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\ViewModels\\LoginVM.cs",
               "RelativeDocumentMoniker": "ViewModels\\LoginVM.cs",
@@ -371,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "RegisterVM.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\ViewModels\\RegisterVM.cs",
               "RelativeDocumentMoniker": "ViewModels\\RegisterVM.cs",
@@ -383,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 26,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\WheelItem\\Create.cshtml",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\WheelItem\\Create.cshtml",
@@ -395,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\WheelItem\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\WheelItem\\Index.cshtml",
@@ -407,19 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAUwHAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T19:55:51.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -431,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\Views\\WheelItem\\Delete.cshtml",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\Views\\WheelItem\\Delete.cshtml",
@@ -443,19 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAALsAAAAAAAAAAAAowMsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-06T12:13:07.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
@@ -467,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "RegisterVM.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\ViewModels\\RegisterVM.cs",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\ViewModels\\RegisterVM.cs",
@@ -479,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "LoginVM.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Areas\\AdminPanel\\ViewModels\\LoginVM.cs",
               "RelativeDocumentMoniker": "Areas\\AdminPanel\\ViewModels\\LoginVM.cs",
@@ -491,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
@@ -503,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
@@ -515,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "20260305195145_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\ulvir\\OneDrive\\\u0130\u015F masas\u0131\\LPicker\\Migrations\\20260305195145_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20260305195145_InitialCreate.cs",
