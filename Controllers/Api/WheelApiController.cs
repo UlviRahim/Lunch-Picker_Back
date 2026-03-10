@@ -19,7 +19,6 @@ namespace LPicker.Controllers.Api
             _userManager = userManager;
         }
 
-        // İstifadəçi məlumatını qaytar
         [HttpGet("userinfo")]
         public async Task<IActionResult> GetUserInfo()
         {
@@ -27,7 +26,6 @@ namespace LPicker.Controllers.Api
             return Ok(new { userName = user?.UserName });
         }
 
-        // Ümumi + İstifadəçinin öz elementləri
         [HttpGet("items")]
         public async Task<IActionResult> GetItems()
         {
@@ -37,12 +35,10 @@ namespace LPicker.Controllers.Api
 
             if (user != null)
             {
-                // Daxil olub: Ümumi (UserId=NULL) + Öz elementləri
                 query = query.Where(w => w.UserId == null || w.UserId == user.Id);
             }
             else
             {
-                // Qonaq: Yalnız ümumi elementlər
                 query = query.Where(w => w.UserId == null);
             }
 
@@ -53,7 +49,6 @@ namespace LPicker.Controllers.Api
             return Ok(items);
         }
 
-        // Yeni element əlavə et
         [HttpPost("items")]
         public async Task<IActionResult> AddItem([FromBody] AddItemRequest request)
         {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LPicker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec5fdc9f6d21dc1cf9d7eadd12258c595f4cc06d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41a3372db9dd5daeddef63f4a0ce3a022303a5b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("LPicker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LPicker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

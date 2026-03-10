@@ -33,7 +33,6 @@
 
             @if (SignInManager.IsSignedIn(User))
             {
-                <!-- Giriş edilib - Çıxış düyməsi -->
                 <span style="color: #fff; margin-right: 10px; font-size: 14px;">
                     Salam, @User.Identity?.Name
                 </span>
@@ -53,7 +52,7 @@
             }
             else
             {
-                <!-- Giriş edilməyib - Daxil ol düyməsi -->
+               
                 <a href="/Account/Login" class="signin-btn" style="text-decoration: none;">
                     <i class="fas fa-sign-in-alt"></i> Daxil ol
                 </a>

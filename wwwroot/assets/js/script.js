@@ -32,8 +32,10 @@ let darkMode = JSON.parse(localStorage.getItem("darkMode")) ?? false;
 let angle = 0;
 let spinning = false;
 
-// 2. API FUNCTIONS
+// Seçilən yemək üçün
+let selectedMealName = '';
 
+// 2. API FUNCTIONS
 
 // Dowland Users Data
 async function loadUserInfo() {
@@ -47,7 +49,6 @@ async function loadUserInfo() {
         currentUserName = "guest";
     }
 
-   
     deletedDefaults = JSON.parse(localStorage.getItem("deletedDefaults_" + currentUserName)) || [];
     results = JSON.parse(localStorage.getItem("lunchPickerHistory_" + currentUserName)) || [];
 }
@@ -59,7 +60,6 @@ function saveDeletedDefaults() {
 
 // Dowlanding Elements 
 async function fetchWheelItems() {
-
     items = defaultItems.filter(item =>
         !deletedDefaults.includes(item.name.toLowerCase())
     );
@@ -69,7 +69,6 @@ async function fetchWheelItems() {
         if (res.ok) {
             const data = await res.json();
             if (data && data.length > 0) {
-                // Default-larda olmayan yeni elementləri əlavə et
                 const defaultNames = defaultItems.map(d => d.name.toLowerCase());
                 const newItems = data.filter(item =>
                     !defaultNames.includes(item.name.toLowerCase())
@@ -194,7 +193,6 @@ const translations = {
     },
 };
 
-
 // 4. AUDIO ENGINE (FIXED)
 
 let audioCtx = null;
@@ -231,7 +229,7 @@ const triggerWinSound = () => {
 };
 
 // 5. TƏKƏR ÇƏKMƏ
-// 
+
 function drawWheel() {
     if (!canvas) return;
     if (items.length === 0) {
@@ -267,7 +265,7 @@ function drawWheel() {
 
 // 6. FİRLATMA MƏNTİQİ
 function spinWheel() {
-    initAudio();  // Audio-nu başlat
+    initAudio();
     if (spinning || items.length < 2) return;
     spinning = true;
     spinBtn.disabled = true;
@@ -285,8 +283,7 @@ function spinWheel() {
             let ease = 1 - Math.pow(1 - progress, 4);
             angle += velocity * (1 - ease);
             let currentSegment = Math.floor(
-                ((2 * Math.PI - (angle % (2 * Math.PI))) / (2 * Math.PI)) *
-                items.length,
+                ((2 * Math.PI - (angle % (2 * Math.PI))) / (2 * Math.PI)) * items.length,
             );
             if (currentSegment !== lastTickSegment) {
                 triggerTickSound();
@@ -334,11 +331,13 @@ function finalizeSpin() {
     });
     saveData();
 
+    // Seçilən yeməyi Index.cshtml-ə göndər
+    setSelectedMeal(winner.name);
+
     showWinnerModal(winner, winnerIndex);
 }
 
 // 7. MODAL PƏNCƏRƏLƏR
-// 
 
 async function showWinnerModal(winner, index) {
     const t = translations[currentLang];
@@ -431,9 +430,7 @@ function closeCustomModal() {
     modal.classList.remove("active");
 }
 
-// 
 // 8. ELEMENT ƏMƏLİYYATLARI
-// 
 
 function updateItemName(idx, val) {
     if (val.trim()) {
@@ -496,7 +493,6 @@ function applyDarkMode() {
 
 const moonIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 const sunIcon = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
-
 
 // 10. EVENT LISTENERS
 
@@ -586,7 +582,19 @@ function initDarkMode() {
     applyDarkMode();
 }
 
-// 11. BAŞLANĞIC
+// 11. RESEPT FUNKSİYALARI (Index.cshtml ilə əlaqə)
+
+function setSelectedMeal(name) {
+    selectedMealName = name;
+    const selectedDiv = document.getElementById('selectedMeal');
+    const selectedNameEl = document.getElementById('selectedName');
+    if (selectedDiv && selectedNameEl) {
+        selectedNameEl.textContent = name;
+        selectedDiv.style.display = 'block';
+    }
+}
+
+// 12. BAŞLANĞIC
 
 initDarkMode();
 
@@ -598,3 +606,134 @@ document.querySelector(".title").textContent = translations[currentLang].title;
 spinBtn.textContent = translations[currentLang].spin;
 modifyBtn.textContent = translations[currentLang].modify;
 resultsBtn.textContent = translations[currentLang].results;
+let mealSelectedName = '';
+
+function setSelectedMeal(name) {
+    mealSelectedName = name;
+    const selectedDiv = document.getElementById('selectedMeal');
+    const selectedNameEl = document.getElementById('selectedName');
+    if (selectedDiv && selectedNameEl) {
+        selectedNameEl.textContent = name;
+        selectedDiv.style.display = 'block';
+    }
+}
+
+async function getRandomMeal() {
+    openMealModal();
+    try {
+        const response = await fetch('/Home/RandomMeal');
+        const meal = await response.json();
+        if (meal.error) {
+            showMealError(meal.error);
+        } else {
+            showMealDetails(meal);
+        }
+    } catch (e) {
+        showMealError('Xəta baş verdi');
+    }
+}
+
+async function searchMealByName() {
+    if (!mealSelectedName) return;
+    openMealModal();
+    try {
+        const response = await fetch(`/Home/SearchMeal?name=${encodeURIComponent(mealSelectedName)}`);
+        const meal = await response.json();
+        if (meal.error) {
+            showMealError(meal.error + '. Random tövsiyə alın...');
+            setTimeout(getRandomMeal, 1500);
+        } else {
+            showMealDetails(meal);
+        }
+    } catch (e) {
+        showMealError('Xəta baş verdi');
+    }
+}
+
+function openMealModal() {
+    const modal = document.getElementById('mealModal');
+    const content = document.getElementById('mealContent');
+    if (modal) modal.style.display = 'block';
+    if (content) {
+        content.innerHTML = `
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Yemək axtarılır...</p>
+            </div>
+        `;
+    }
+}
+
+function closeMealModal() {
+    const modal = document.getElementById('mealModal');
+    if (modal) modal.style.display = 'none';
+}
+
+function showMealError(message) {
+    const content = document.getElementById('mealContent');
+    if (content) {
+        content.innerHTML = `
+            <div class="loading">
+                <div style="font-size: 48px; margin-bottom: 15px;">😕</div>
+                <p>${message}</p>
+            </div>
+        `;
+    }
+}
+
+function showMealDetails(meal) {
+    const content = document.getElementById('mealContent');
+    if (!content) return;
+
+    let youtubeHtml = '';
+    if (meal.youtube) {
+        const videoUrl = meal.youtube.replace('watch?v=', 'embed/');
+        youtubeHtml = `
+            <div class="section-title">🎬 Video Resept</div>
+            <div class="video-container">
+                <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        `;
+    }
+
+    let ingredientsHtml = '';
+    if (meal.ingredients && meal.ingredients.length > 0) {
+        ingredientsHtml = meal.ingredients.map(ing => `
+            <div class="ingredient">
+                <span>✓</span>
+                <span>${ing}</span>
+            </div>
+        `).join('');
+    }
+
+    content.innerHTML = `
+        <img src="${meal.image}" alt="${meal.name}" class="meal-image">
+        <div class="meal-info">
+            <h2 class="meal-title">${meal.name}</h2>
+            <div class="meal-badges">
+                ${meal.category ? `<span class="badge">${meal.category}</span>` : ''}
+                ${meal.area ? `<span class="badge">${meal.area}</span>` : ''}
+            </div>
+
+            <div class="section-title">🥗 Tərkiblər</div>
+            <div class="ingredients-list">${ingredientsHtml}</div>
+
+            <div class="section-title">👨‍🍳 Hazırlanma</div>
+            <div class="instructions">${meal.instructions}</div>
+
+            ${youtubeHtml}
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn btn-secondary" onclick="getRandomMeal()">🔄 Başqa</button>
+            <button class="modal-btn btn-primary" onclick="closeMealModal()">Bağla</button>
+        </div>
+    `;
+}
+
+// Xarici kliklə modalı bağla
+window.onclick = function (event) {
+    const modal = document.getElementById('mealModal');
+    if (event.target == modal) {
+        closeMealModal();
+    }
+}

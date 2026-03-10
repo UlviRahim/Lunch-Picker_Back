@@ -26,6 +26,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<LunchPickerDbContext>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<MealService>();      
+builder.Services.AddHttpClient();                
 
 var app = builder.Build();
 

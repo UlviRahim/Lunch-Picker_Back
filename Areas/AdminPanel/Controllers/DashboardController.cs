@@ -18,14 +18,12 @@ namespace LPicker.Areas.AdminPanel.Controllers
 
         public IActionResult Index()
         {
-            // Statistika məlumatları
             ViewBag.TotalSpins = _context.SpinResults.Count(s => !s.IsDeleted);
             ViewBag.TotalUsers = _context.Users.Count();
             ViewBag.TotalItems = _context.WheelItems.Count(w => !w.IsDeleted);
             ViewBag.TodaySpins = _context.SpinResults
                 .Count(s => !s.IsDeleted && s.SpinDate.Date == DateTime.Today);
 
-            // Son 10 fırlatma
             var recentSpins = _context.SpinResults
                 .Include(s => s.User)
                 .Where(s => !s.IsDeleted)
@@ -34,7 +32,6 @@ namespace LPicker.Areas.AdminPanel.Controllers
                 .ToList();
             ViewBag.RecentSpins = recentSpins;
 
-            // Ən çox seçilən yeməklər
             var topFoods = _context.SpinResults
                 .Where(s => !s.IsDeleted && s.Result != null)
                 .GroupBy(s => s.Result)

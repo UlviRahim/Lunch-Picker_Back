@@ -1,21 +1,3 @@
-wwwroot\assets\css\main.css
-wwwroot\assets\images\wheel-logo.png
-wwwroot\assets\js\script.js
-wwwroot\assets\scss\main.scss
-wwwroot\assets\scss\pages\_home.scss
-wwwroot\assets\admin\vendors\base\bootstrap.min.js.map
-wwwroot\assets\admin\vendors\base\vendor.bundle.base.css
-wwwroot\assets\admin\vendors\base\vendor.bundle.base.js
-wwwroot\assets\admin\vendors\chart.js\Chart.min.js
-wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.css
-wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.js
-wwwroot\assets\admin\vendors\datatables.net\jquery.dataTables.js
-wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css
-wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css.map
-wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.eot
-wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.ttf
-wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff
-wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff2
 wwwroot\assets\admin\css\maps\style.css.map
 wwwroot\assets\admin\css\style.css
 wwwroot\assets\admin\fonts\Roboto\Roboto-Black.eot
@@ -85,6 +67,24 @@ wwwroot\assets\admin\js\jquery.dataTables.js
 wwwroot\assets\admin\js\off-canvas.js
 wwwroot\assets\admin\js\tabs.js
 wwwroot\assets\admin\js\template.js
+wwwroot\assets\admin\vendors\base\bootstrap.min.js.map
+wwwroot\assets\admin\vendors\base\vendor.bundle.base.css
+wwwroot\assets\admin\vendors\base\vendor.bundle.base.js
+wwwroot\assets\admin\vendors\chart.js\Chart.min.js
+wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.css
+wwwroot\assets\admin\vendors\datatables.net-bs4\dataTables.bootstrap4.js
+wwwroot\assets\admin\vendors\datatables.net\jquery.dataTables.js
+wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css
+wwwroot\assets\admin\vendors\mdi\css\materialdesignicons.min.css.map
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.eot
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.ttf
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff
+wwwroot\assets\admin\vendors\mdi\fonts\materialdesignicons-webfont.woff2
+wwwroot\assets\css\main.css
+wwwroot\assets\images\wheel-logo.png
+wwwroot\assets\js\script.js
+wwwroot\assets\scss\main.scss
+wwwroot\assets\scss\pages\_home.scss
 C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\css\main.css
 C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\js\script.js
 C:\Users\ulvir\OneDrive\İş masası\LPicker\wwwroot\assets\admin\vendors\base\bootstrap.min.js.map

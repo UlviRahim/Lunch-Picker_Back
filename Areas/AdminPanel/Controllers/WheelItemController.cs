@@ -34,7 +34,7 @@ namespace LPicker.Areas.AdminPanel.Controllers
             if (!ModelState.IsValid) return View(item);
 
             item.IsDeleted = false;
-            item.UserId = null;  // <-- Admin əlavə edəndə NULL olur (hamı görür)
+            item.UserId = null; 
             _context.WheelItems.Add(item);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
