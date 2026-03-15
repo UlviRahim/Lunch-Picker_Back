@@ -10,9 +10,14 @@
         <button class="spin-btn" id="spin">Fırlat</button>
     </div>
 
-    <div id="selectedMeal" class="selected-meal" style="display: none;">
-        <p>Seçilən: <strong id="selectedName"></strong></p>
-        <button class="recipe-btn" onclick="searchMealByName()">🍳 Reseptə Bax</button>
+    <div id="selectedMeal" class="selected-meal-card" style="display: none;">
+        <div class="selection-info">
+            <span class="badge-mini">Sənin Seçimin</span>
+            <h2 id="selectedName"></h2>
+            <button class="recipe-btn-modern" onclick="searchMealByName()">
+                <span>🍳</span> Reseptə Bax
+            </button>
+        </div>
     </div>
 
     <div class="controls">
@@ -30,10 +35,9 @@
     </div>
 </main>
 
-<!-- Meal Modal -->
 <div id="mealModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+        <span class="close-trigger" onclick="closeModal()">&times;</span>
         <div id="mealContent" class="meal-content-area">
             <div class="loading">
                 <div class="spinner"></div>
@@ -44,63 +48,85 @@
 </div>
 
 <style>
-    .selected-meal {
+    /* 1. NƏTİCƏ ÇIXAN HİSSƏ */
+    .selected-meal-card {
         text-align: center;
-        margin: 20px 0;
-        padding: 15px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 25px auto;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        max-width: 380px;
+        border: 1px solid #f1f5f9;
+        animation: resultPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-        .selected-meal p {
-            margin: 0 0 10px 0;
-            font-size: 18px;
-            color: #333;
-        }
+    .badge-mini {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #94a3b8;
+        font-weight: 700;
+    }
 
-        .selected-meal strong {
-            color: #667eea;
-            font-size: 22px;
-        }
+    #selectedName {
+        display: block;
+        color: #1e293b;
+        font-size: 26px;
+        margin: 10px 0 20px 0;
+        font-weight: 800;
+    }
 
-    .recipe-btn {
-        padding: 10px 20px;
-        background: linear-gradient(135deg, #10b981, #059669);
+    /* 2. RESEPTƏ BAX DÜYMƏSİ */
+    .recipe-btn-modern {
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
         color: white;
         border: none;
-        border-radius: 8px;
+        border-radius: 50px;
         cursor: pointer;
         font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
     }
 
-        .recipe-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
-        }
+    .recipe-btn-modern:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px rgba(99, 102, 241, 0.4);
+    }
 
+    /* 3. RANDOM YEMƏK TÖVSİYƏ ET BUTTON */
     .suggestion-section {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 25px;
     }
 
     .suggest-btn {
-        padding: 15px 30px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        padding: 16px 35px;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         color: white;
         border: none;
-        border-radius: 12px;
+        border-radius: 50px;
         cursor: pointer;
         font-size: 16px;
         font-weight: 600;
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
     }
 
-        .suggest-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
+    .suggest-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(16, 185, 129, 0.45);
+    }
 
-    /* MODAL */
+    /* 4. MODAL */
     .modal {
         display: none;
         position: fixed;
@@ -109,59 +135,59 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.6);
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(8px);
         overflow-y: auto;
-        padding: 20px 0;
+        padding: 30px 0;
     }
 
     .modal-content {
         background: white;
         margin: 0 auto;
-        border-radius: 24px;
-        width: 95%;
-        max-width: 700px;
+        border-radius: 28px;
+        width: 92%;
+        max-width: 680px;
         position: relative;
-        animation: slideIn 0.3s ease;
-        box-shadow: 0 25px 60px rgba(0,0,0,0.3);
         overflow: hidden;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        animation: modalSlideIn 0.3s ease;
     }
 
-    @@keyframes slideIn {
+    @@keyframes modalSlideIn {
         from {
             transform: translateY(-30px);
             opacity: 0;
         }
-
         to {
             transform: translateY(0);
             opacity: 1;
         }
     }
 
-    .close {
+    /* CLOSE BUTTON */
+    .close-trigger {
         position: absolute;
         top: 15px;
         right: 15px;
-        font-size: 22px;
-        font-weight: bold;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.3);
         color: white;
-        cursor: pointer;
-        z-index: 10;
-        background: rgba(0,0,0,0.5);
-        width: 36px;
-        height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 100;
         transition: all 0.3s;
-        border: 2px solid rgba(255,255,255,0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-        .close:hover {
-            background: #ef4444;
-            transform: rotate(90deg) scale(1.1);
-        }
+    .close-trigger:hover {
+        background: #ef4444;
+        transform: rotate(90deg);
+    }
 
     .meal-content-area {
         overflow: visible;
@@ -173,25 +199,21 @@
     }
 
     .spinner {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         border: 4px solid #e0e0e0;
         border-top: 4px solid #667eea;
         border-radius: 50%;
         animation: spin 1s linear infinite;
-        margin: 0 auto 15px;
+        margin: 0 auto 20px;
     }
 
     @@keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 
+    /* MEAL IMAGE */
     .meal-image-container {
         position: relative;
         width: 100%;
@@ -216,7 +238,7 @@
         left: 0;
         right: 0;
         height: 50%;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
         pointer-events: none;
     }
 
@@ -229,28 +251,29 @@
         z-index: 5;
     }
 
-        .meal-image-title h2 {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 0 0 8px 0;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
+    .meal-image-title h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    text-shadow: 2px 2px 8px rgba(255,255,255,0.5);
+    color: #000000;
+}
 
     .meal-image-badges {
         display: flex;
-        gap: 8px;
+        gap: 10px;
     }
 
-        .meal-image-badges .badge {
-            padding: 6px 14px;
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
-            color: white;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
+   .meal-image-badges .badge {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    color: #000000;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,0.2);
+}
 
     .meal-info {
         padding: 25px;
@@ -268,14 +291,15 @@
         gap: 8px;
     }
 
+    /* INGREDIENTS & INSTRUCTIONS */
     .ingredients-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
-        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-        padding: 12px;
-        border-radius: 12px;
-        border: 1px solid #bbf7d0;
+        background: #f8fafc;
+        padding: 16px;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
     }
 
     .ingredient {
@@ -290,19 +314,19 @@
         transition: all 0.3s;
     }
 
-        .ingredient:hover {
-            transform: translateX(3px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+    .ingredient:hover {
+        transform: translateX(3px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
 
-        .ingredient span:first-child {
-            color: #10b981;
-            font-weight: bold;
-        }
+    .ingredient span:first-child {
+        color: #10b981;
+        font-weight: bold;
+    }
 
-        .ingredient span:last-child {
-            color: #374151;
-        }
+    .ingredient span:last-child {
+        color: #374151;
+    }
 
     .instructions {
         font-size: 14px;
@@ -310,60 +334,60 @@
         color: #374151;
         white-space: pre-line;
         padding: 18px;
-        background: linear-gradient(135deg, #fefce8, #fef9c3);
-        border-radius: 12px;
-        border: 1px solid #fde047;
+        background: #f8fafc;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
     }
 
     .video-container {
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         margin-top: 8px;
     }
 
-        .video-container iframe {
-            width: 100%;
-            height: 280px;
-            border: none;
-        }
+    .video-container iframe {
+        width: 100%;
+        height: 280px;
+        border: none;
+    }
 
     .no-video {
         text-align: center;
         padding: 25px;
-        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        background: #f8fafc;
         border-radius: 12px;
         border: 2px dashed #cbd5e1;
         margin-top: 8px;
     }
 
-        .no-video p {
-            color: #64748b;
-            margin-bottom: 12px;
-        }
+    .no-video p {
+        color: #64748b;
+        margin-bottom: 12px;
+    }
 
-        .no-video a {
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 10px;
-            display: inline-block;
-            transition: all 0.3s;
-        }
+    .no-video a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 10px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
 
-            .no-video a:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-            }
+    .no-video a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
 
+    /* MODAL FOOTER */
     .modal-footer {
         display: flex;
         gap: 12px;
         padding: 20px 25px;
-        border-top: 1px solid #e5e7eb;
-        background: #f9fafb;
+
     }
 
     .modal-btn {
@@ -383,9 +407,9 @@
         border: 1px solid #d1d5db;
     }
 
-        .btn-secondary:hover {
-            background: #f3f4f6;
-        }
+    .btn-secondary:hover {
+        background: #f3f4f6;
+    }
 
     .btn-primary {
         background: linear-gradient(135deg, #667eea, #764ba2);
@@ -393,10 +417,22 @@
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    /* ANIMATIONS */
+    @@keyframes resultPop {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
         }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 </style>
 
 <script>
@@ -485,7 +521,6 @@
             if (videoUrl.includes('youtu.be/')) {
                 videoUrl = videoUrl.replace('youtu.be/', 'www.youtube.com/embed/');
             }
-
             videoHtml = `
                 <div class="section-title">🎬 Video Resept</div>
                 <div class="video-container">

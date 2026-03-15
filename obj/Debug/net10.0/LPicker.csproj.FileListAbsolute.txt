@@ -303,4 +303,4 @@ C:\Users\ulvir\OneDrive\İş masası\LPicker\bin\Debug\net10.0\Microsoft.AspNetC
 C:\Users\ulvir\OneDrive\İş masası\LPicker\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\LPicker.sourcelink.json
 C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
-C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\z5sdtp603t-{0}-oto4senbya-oto4senbya.gz
+C:\Users\ulvir\OneDrive\İş masası\LPicker\obj\Debug\net10.0\compressed\z5sdtp603t-{0}-vmobj7w5hr-vmobj7w5hr.gz
